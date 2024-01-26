@@ -22,7 +22,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useCart from "../../Hooks/useCart";
 export default function MyModal({ food }) {
   let [isOpen, setIsOpen] = useState(false);
-  const [itemQuantity, setItemQuantity] = useState(0);
+  const [itemQuantity, setItemQuantity] = useState(1);
   const navigate = useNavigate();
   const location = useLocation();
   const axiosSecure = useAxiosSecure();
@@ -48,27 +48,25 @@ export default function MyModal({ food }) {
       setItemQuantity(itemQuantity - 1);
     }
   };
-  const totalPrice = (food?.price * itemQuantity).toFixed(2);
 
+  const totalPrice = (food?.price * itemQuantity).toFixed(2);
   const handleAddToCart = () => {
+    setItemQuantity(0);
     if (user && user.email) {
       const cartItem = {
         menuItemID: food?._id,
         email: user?.email,
+        category: food?.category,
         foodName: food?.name,
-        price: food?.price,
+        price: totalPrice,
+        rating: food?.rating,
+        quantity: itemQuantity,
         image: food?.image,
       };
       console.log(cartItem);
       axiosSecure.post("/carts", cartItem).then((res) => {
         if (res.data.insertedId) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `${name} added to your cart`,
-            showConfirmButton: false,
-            timer: 1000,
-          });
+          toast.success("Product added successfully to cart");
           refetch();
         }
       });

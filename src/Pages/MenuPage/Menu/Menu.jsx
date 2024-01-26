@@ -12,34 +12,29 @@ import useMenu from "../../../Hooks/useMenu";
 const Menu = () => {
   const [menu] = useMenu();
 
-  const offered = menu.filter((item) => item.category === "offered");
-  const desserts = menu.filter((item) => item.category === "dessert");
-  const soup = menu.filter((item) => item.category === "soup");
-  const salad = menu.filter((item) => item.category === "salad");
-  const pizza = menu.filter((item) => item.category === "pizza");
+  const desserts = menu.filter((item) => item.category === "Dessert");
+  const burger = menu.filter((item) => item.category === "Burger");
+  const coffee = menu.filter((item) => item.category === "Coffee");
+  const salad = menu.filter((item) => item.category === "Salad");
+  const pizza = menu.filter((item) => item.category === "Pizza");
+  const drinks = menu.filter((item) => item.category === "Drinks");
+  const chicken = menu.filter((item) => item.category === "Chicken");
 
   return (
     <div>
       <Helmet>
         <title>Bistro Boss | Menu</title>
       </Helmet>
-      <Cover img={menuImg} title="our menu"></Cover>
+      <Cover img={menuImg} location="Menu Restaurant" />
       {/* main cover */}
-      <SectionTitle
-        subHeading="Don't Miss"
-        heading="Today's Offer"
-      ></SectionTitle>
-      {/* offered menu items */}
-      <MenuCategory items={offered}></MenuCategory>
-      {/* dessert menu items  */}
-      <MenuCategory
-        items={desserts}
-        title="dessert"
-        img={dessertImg}
-      ></MenuCategory>
-      <MenuCategory items={pizza} title={"pizza"} img={pizzaImg}></MenuCategory>
-      <MenuCategory items={salad} title={"salad"} img={saladImg}></MenuCategory>
-      <MenuCategory items={soup} title={"soup"} img={soupImg}></MenuCategory>
+      <SectionTitle subHeading="Don't Miss" heading="Today's Offer" />
+      <MenuCategory items={burger} />
+      <MenuCategory items={coffee} location="coffee" img={dessertImg} />
+      <MenuCategory items={pizza} location={"pizza"} img={pizzaImg} />
+      <MenuCategory items={salad} location={"salad"} img={saladImg} />
+      <MenuCategory items={drinks} location={"drinks"} img={saladImg} />
+      <MenuCategory items={chicken} location={"chicken"} img={saladImg} />
+      <MenuCategory items={desserts} location={"desserts"} img={soupImg} />
     </div>
   );
 };

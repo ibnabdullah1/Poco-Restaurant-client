@@ -187,7 +187,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="my-5 bg-zinc-600 h-[1px] w-full" />
-        <div className="lg:flex flex space-y-2 flex-col justify-between items-center">
+        <div className="lg:flex flex lg:flex-row space-y-2 flex-col justify-between items-center">
           <div className="flex justify-start items-center gap-2">
             <div className="hover:bg-[#ffcc00] bg-zinc-800 p-2 rounded-full text-[#ffcc00] hover:text-white ">
               <FaFacebookF className=" text-xl" />

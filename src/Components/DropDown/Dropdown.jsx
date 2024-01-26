@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import { FaUser } from "react-icons/fa6";
 import useAuth from "../../Hooks/useAuth";
 import { Link, useNavigate } from "react-router-dom";
+import { Avatar } from "@material-tailwind/react";
 const Dropdown = () => {
   const navigate = useNavigate();
   const { user, logOut } = useAuth();
@@ -16,23 +17,17 @@ const Dropdown = () => {
         <div>
           <Menu.Button className="">
             {user ? (
-              <div className="w-10 rounded-full">
-                <label
-                  tabIndex={0}
-                  className="btn btn-ghost btn-circle avatar online"
-                >
-                  <div className="w-10 border rounded-full">
-                    <img
-                      src={
-                        user?.photoURL
-                          ? user?.photoURL
-                          : "https://www.svgrepo.com/show/525577/user-circle.svg"
-                      }
-                      alt={user?.displayName}
-                    />
-                  </div>
-                </label>
-              </div>
+              <Avatar
+                src={
+                  user?.photoURL
+                    ? user?.photoURL
+                    : "https://www.svgrepo.com/show/525577/user-circle.svg"
+                }
+                alt={user?.displayName}
+                withBorder={true}
+                color="green"
+                className="w-[40px] h-[40px]"
+              />
             ) : (
               <button className="hover:bg-[#ffcc00] flex justify-center items-center relative border w-[40px] h-[40px] hover:border hover:border-[#ffcc00] bg-white text-xl  rounded-full hover:text-white">
                 <FaUser />

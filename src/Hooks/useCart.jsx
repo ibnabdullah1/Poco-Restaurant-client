@@ -17,8 +17,3 @@ const useCart = () => {
 };
 
 export default useCart;
-// useEffect(() => {
-//     fetch("http://localhost:5000/carts")
-//       .then((res) => res.json())
-//       .then((data) => setCart(data));
-//   }, []);
