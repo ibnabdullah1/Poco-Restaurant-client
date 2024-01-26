@@ -1,0 +1,857 @@
+[
+  {
+    "name": "BBQ Bacon Cheeseburger",
+    "recipe": "Beef patty with crispy bacon, cheddar cheese, BBQ sauce, lettuce, and tomato. A smoky and savory delight.",
+    "image": "https://i.ibb.co/KVQLGCG/b5.png",
+    "category": "Burger",
+    "price": 10.99,
+    "rating": 4.8
+  },
+  {
+    "name": "BBQ Chicken Ranch Pizza",
+    "recipe": "Grilled chicken, tangy BBQ sauce, ranch dressing, red onions, and mozzarella. A flavorful twist on the classic BBQ chicken pizza.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 13.49,
+    "rating": 4.6
+  },
+  {
+    "name": "Mango Avocado Quinoa Salad",
+    "recipe": "Quinoa, diced mango, avocado, cherry tomatoes, and a lime vinaigrette. A refreshing and nutritious salad with a tropical twist.",
+    "image": "https://i.ibb.co/dWNPkBB/salad.png",
+    "category": "Salad",
+    "price": 10.49,
+    "rating": 4.8
+  },
+  {
+    "name": "Mushroom Marsala Chicken",
+    "recipe": "Chicken cutlets in a rich and savory mushroom marsala sauce, served over pasta or rice. An elegant and hearty chicken dinner.",
+    "image": "https://i.ibb.co/nc6L8bk/chicken.png",
+    "category": "Chicken",
+    "price": 17.99,
+    "rating": 4.8
+  },
+  {
+    "name": "Raspberry Chocolate Mousse",
+    "recipe": "Layers of rich chocolate mousse and tart raspberry coulis. A harmonious blend of flavors in every spoonful.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 8.99,
+    "rating": 4.8
+  },
+  {
+    "name": "Margherita Pizza",
+    "recipe": "Classic pizza with tomato sauce, fresh mozzarella, basil, and a drizzle of olive oil. Simple, yet incredibly flavorful.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 10.99,
+    "rating": 4.8
+  },
+  {
+    "name": "Veggie Quinoa Burger",
+    "recipe": "Homemade quinoa patty with lettuce, tomato, avocado, and garlic aioli. A nutritious and flavorful vegetarian option.",
+    "image": "https://i.ibb.co/KVQLGCG/b5.png",
+    "category": "Burger",
+    "price": 7.99,
+    "rating": 4.3
+  },
+  {
+    "name": "Cobb Salad",
+    "recipe": "Chopped lettuce, grilled chicken, bacon, avocado, tomatoes, blue cheese, and ranch dressing. A hearty and satisfying salad with layers of flavor.",
+    "image": "https://i.ibb.co/dWNPkBB/salad.png",
+    "category": "Salad",
+    "price": 14.99,
+    "rating": 4.7
+  },
+  {
+    "name": "Strawberry Shortcake",
+    "recipe": "Light and fluffy shortcake layers with fresh strawberries and whipped cream. A classic treat perfect for any occasion.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 5.99,
+    "rating": 4.5
+  },
+  {
+    "name": "Espresso Martini",
+    "recipe": "Vodka, coffee liqueur, and freshly brewed espresso. A sophisticated and energizing cocktail for coffee enthusiasts.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 10.99,
+    "rating": 4.6
+  },
+  {
+    "name": "Molten Lava Cake",
+    "recipe": "Indulge in the oozing goodness of warm molten chocolate encased in a moist chocolate cake. Pure bliss in every bite.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 9.99,
+    "rating": 4.9
+  },
+  {
+    "name": "Bacon and Egg Breakfast Pizza",
+    "recipe": "Start your day with bacon, eggs, cheddar cheese, and mozzarella on a breakfast pizza. The perfect morning indulgence.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 10.99,
+    "rating": 4.7
+  },
+  {
+    "name": "Caramel Apple Pie",
+    "recipe": "Flaky pie crust filled with sweet caramel-coated apples, baked to perfection. Served warm for a comforting and delightful dessert.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 7.49,
+    "rating": 4.6
+  },
+  {
+    "name": "Espresso Shot",
+    "recipe": "A strong and concentrated coffee made by forcing hot water through finely-ground coffee beans. Pure and intense coffee experience.",
+    "image": "https://i.ibb.co/WnymVRh/m8.png",
+    "category": "Coffee",
+    "price": 2.49,
+    "rating": 4.8
+  },
+  {
+    "name": "Red Velvet Cupcakes",
+    "recipe": "Velvety red cupcakes with cream cheese frosting. A delightful combination of flavors and a visually stunning treat for any occasion.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 3.99,
+    "rating": 4.5
+  },
+  {
+    "name": "Pistachio Ice Cream",
+    "recipe": "Creamy pistachio-flavored ice cream with chopped pistachios. A nutty and refreshing dessert to cool off on a warm day.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 5.99,
+    "rating": 4.8
+  },
+  {
+    "name": "Banana Foster Sundae",
+    "recipe": "Caramelized bananas served over vanilla ice cream, topped with whipped cream and chopped nuts. A tropical indulgence in every spoonful.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 6.99,
+    "rating": 4.6
+  },
+  {
+    "name": "Coconut Cream Pie",
+    "recipe": "Flaky pie crust filled with luscious coconut cream, topped with whipped cream and toasted coconut flakes. A tropical delight.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 7.49,
+    "rating": 4.7
+  },
+  {
+    "name": "Mango Sorbet",
+    "recipe": "Refreshing mango sorbet made with ripe mangoes. A fruity and light dessert to cleanse the palate after a savory meal.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 4.99,
+    "rating": 4.5
+  },
+  {
+    "name": "Cherry Almond Tart",
+    "recipe": "Buttery tart crust filled with almond cream and sweet cherries. A delightful combination of nuttiness and fruity sweetness.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 6.99,
+    "rating": 4.8
+  },
+  {
+    "name": "Peach Cobbler",
+    "recipe": "Juicy peaches baked with a buttery cobbler topping, served warm. A comforting and homestyle dessert that captures the essence of summer.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 5.99,
+    "rating": 4.6
+  },
+  {
+    "name": "Dark Chocolate Truffles",
+    "recipe": "Smooth and velvety dark chocolate truffles rolled in cocoa powder. A luxurious treat for chocolate connoisseurs.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 9.99,
+    "rating": 4.9
+  },
+  {
+    "name": "Blueberry Lemon Bars",
+    "recipe": "Lemon-infused bars with a blueberry compote swirl. A delightful combination of citrusy tartness and sweet berry goodness.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 6.49,
+    "rating": 4.7
+  },
+  {
+    "name": "Pumpkin Cheesecake",
+    "recipe": "Spiced pumpkin cheesecake with a gingersnap crust. A perfect autumn dessert that captures the flavors of the season.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 8.99,
+    "rating": 4.8
+  },
+  {
+    "name": "Coffee Toffee Crunch Cake",
+    "recipe": "Moist coffee-flavored cake with toffee bits and a caramel drizzle. A delightful blend of coffee and sweet toffee crunch.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 7.99,
+    "rating": 4.6
+  },
+  {
+    "name": "Mint Chocolate Chip Cookies",
+    "recipe": "Chocolate chip cookies with a burst of mint flavor and chunks of chocolate. A refreshing twist on the classic cookie.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 4.49,
+    "rating": 4.5
+  },
+  {
+    "name": "Hazelnut Tiramisu",
+    "recipe": "A nutty twist on the classic tiramisu, featuring layers of hazelnut-infused ladyfingers and mascarpone cream. A delightful hazelnut indulgence.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 9.49,
+    "rating": 4.7
+  },
+  {
+    "name": "Classic Beef Burger",
+    "recipe": "Juicy beef patty with lettuce, tomato, onion, and pickles. Served on a sesame seed bun with ketchup and mustard.",
+    "image": "https://i.ibb.co/KVQLGCG/b5.png",
+    "category": "Burger",
+    "price": 8.99,
+    "rating": 4.5
+  },
+  {
+    "name": "Spicy Chicken Burger",
+    "recipe": "Crispy fried chicken breast with spicy mayo, lettuce, and tomato. A fiery twist on the classic chicken burger.",
+    "image": "https://i.ibb.co/KVQLGCG/b5.png",
+    "category": "Burger",
+    "price": 9.49,
+    "rating": 4.7
+  },
+
+  {
+    "name": "Mushroom Swiss Burger",
+    "recipe": "Beef patty topped with sautéed mushrooms, Swiss cheese, lettuce, and truffle aioli. A gourmet twist on the classic burger.",
+    "image": "https://i.ibb.co/KVQLGCG/b5.png",
+    "category": "Burger",
+    "price": 11.49,
+    "rating": 4.6
+  },
+  {
+    "name": "Teriyaki Salmon Burger",
+    "recipe": "Grilled teriyaki-glazed salmon patty with pineapple, lettuce, and wasabi mayo. A fusion of Asian flavors in a burger.",
+    "image": "https://i.ibb.co/KVQLGCG/b5.png",
+    "category": "Burger",
+    "price": 12.99,
+    "rating": 4.5
+  },
+  {
+    "name": "Black Bean Chipotle Burger",
+    "recipe": "Spicy black bean patty with chipotle mayo, corn salsa, lettuce, and pepper jack cheese. A zesty and satisfying vegetarian option.",
+    "image": "https://i.ibb.co/KVQLGCG/b5.png",
+    "category": "Burger",
+    "price": 8.49,
+    "rating": 4.2
+  },
+  {
+    "name": "Buffalo Chicken Burger",
+    "recipe": "Grilled chicken patty tossed in buffalo sauce, with blue cheese dressing, lettuce, and tomato. A spicy and tangy delight.",
+    "image": "https://i.ibb.co/KVQLGCG/b5.png",
+    "category": "Burger",
+    "price": 9.99,
+    "rating": 4.4
+  },
+
+  {
+    "name": "Hawaiian BBQ Burger",
+    "recipe": "Beef patty with grilled pineapple, teriyaki sauce, bacon, lettuce, and Swiss cheese. A tropical twist on the classic BBQ burger.",
+    "image": "https://i.ibb.co/KVQLGCG/b5.png",
+    "category": "Burger",
+    "price": 11.99,
+    "rating": 4.6
+  },
+  {
+    "name": "Jalapeño Popper Burger",
+    "recipe": "Beef patty with jalapeño cream cheese, crispy jalapeños, lettuce, and tomato. A spicy and indulgent burger experience.",
+    "image": "https://i.ibb.co/KVQLGCG/b5.png",
+    "category": "Burger",
+    "price": 9.79,
+    "rating": 4.3
+  },
+  {
+    "name": "Pesto Portobello Burger",
+    "recipe": "Grilled portobello mushroom cap with pesto, roasted red peppers, mozzarella, and arugula. A flavorful vegetarian option.",
+    "image": "https://i.ibb.co/KVQLGCG/b5.png",
+    "category": "Burger",
+    "price": 8.99,
+    "rating": 4.4
+  },
+  {
+    "name": "Chai Tea Latte",
+    "recipe": "Spiced chai tea concentrate mixed with steamed milk. A comforting and aromatic latte with the warming flavors of chai spices.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 5.49,
+    "rating": 4.6
+  },
+  {
+    "name": "Sriracha Turkey Burger",
+    "recipe": "Spicy sriracha-infused turkey patty with pepper jack cheese, avocado, lettuce, and tomato. A bold and flavorful burger.",
+    "image": "https://i.ibb.co/KVQLGCG/b5.png",
+    "category": "Burger",
+    "price": 10.29,
+    "rating": 4.5
+  },
+  {
+    "name": "Margherita Pizza",
+    "recipe": "Classic pizza with tomato sauce, fresh mozzarella, basil, and a drizzle of olive oil. Simple, yet incredibly flavorful.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 10.99,
+    "rating": 4.8
+  },
+  {
+    "name": "Pepperoni Delight",
+    "recipe": "A pizza lover's dream with generous layers of pepperoni, tomato sauce, mozzarella, and a sprinkle of oregano.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 12.49,
+    "rating": 4.9
+  },
+  {
+    "name": "Mushroom Truffle Pizza",
+    "recipe": "Indulge in the earthy flavors of truffle oil, sautéed mushrooms, mozzarella, and a hint of garlic on a thin crust.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 14.99,
+    "rating": 4.7
+  },
+
+  {
+    "name": "Veggie Supreme",
+    "recipe": "Loaded with a colorful array of bell peppers, red onions, black olives, mushrooms, and mozzarella. A veggie lover's delight.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 11.99,
+    "rating": 4.5
+  },
+  {
+    "name": "Hawaiian Paradise",
+    "recipe": "Escape to the tropics with ham, pineapple, tomato sauce, and mozzarella. A sweet and savory Hawaiian-inspired pizza.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 12.99,
+    "rating": 4.7
+  },
+  {
+    "name": "Buffalo Chicken Blue Cheese Pizza",
+    "recipe": "Spicy buffalo chicken, blue cheese crumbles, celery, and mozzarella. A zesty and bold pizza for spice lovers.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 13.99,
+    "rating": 4.8
+  },
+  {
+    "name": "Pesto Tomato Artichoke Pizza",
+    "recipe": "Basil pesto, sliced tomatoes, artichoke hearts, feta cheese, and mozzarella. A Mediterranean-inspired burst of flavors.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 14.49,
+    "rating": 4.6
+  },
+  {
+    "name": "Meat Lover's Feast",
+    "recipe": "A carnivore's delight with pepperoni, sausage, bacon, ground beef, and mozzarella. Packed with savory goodness.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 15.99,
+    "rating": 4.9
+  },
+  {
+    "name": "White Garlic Chicken Pizza",
+    "recipe": "Creamy garlic sauce, grilled chicken, spinach, mushrooms, and mozzarella. A luscious and flavorful white pizza option.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 13.99,
+    "rating": 4.7
+  },
+  {
+    "name": "Margarita Supreme",
+    "recipe": "Tomato sauce, fresh tomatoes, basil, black olives, and mozzarella. A delightful twist on the classic Margherita pizza.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 12.49,
+    "rating": 4.8
+  },
+  {
+    "name": "Four Cheese Delight",
+    "recipe": "A cheesy extravaganza featuring mozzarella, cheddar, feta, and parmesan on a rich tomato sauce. Cheese lover's paradise.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 13.99,
+    "rating": 4.5
+  },
+  {
+    "name": "Pulled Pork BBQ Pizza",
+    "recipe": "Tender pulled pork, BBQ sauce, red onions, coleslaw, and mozzarella. A smoky and savory BBQ experience on a pizza.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 14.99,
+    "rating": 4.7
+  },
+  {
+    "name": "Sun-Dried Tomato and Olive Pizza",
+    "recipe": "Sun-dried tomatoes, Kalamata olives, feta cheese, red onions, and mozzarella. A Mediterranean-inspired burst of flavors.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 12.99,
+    "rating": 4.6
+  },
+  {
+    "name": "Barbecue Veggie Delight",
+    "recipe": "Assorted grilled vegetables, barbecue sauce, feta cheese, and mozzarella. A delicious and veggie-packed BBQ pizza.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 11.99,
+    "rating": 4.5
+  },
+  {
+    "name": "Artisan Fig and Prosciutto Pizza",
+    "recipe": "Fig jam, prosciutto, goat cheese, arugula, and balsamic glaze. An elegant and sophisticated pizza for refined palates.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 16.99,
+    "rating": 4.8
+  },
+  {
+    "name": "Sausage and Jalapeño Fiesta",
+    "recipe": "Spicy sausage, jalapeños, red onions, bell peppers, and mozzarella. A fiery and flavorful pizza fiesta.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 13.49,
+    "rating": 4.6
+  },
+  {
+    "name": "Seafood Sensation",
+    "recipe": "A bounty from the sea with shrimp, scallops, calamari, garlic, and mozzarella. A luxurious and flavorful seafood pizza.",
+    "image": "https://i.ibb.co/Zc9qTZc/1-1.png",
+    "category": "Pizza",
+    "price": 18.99,
+    "rating": 4.9
+  },
+  {
+    "name": "Classic Chocolate Cake",
+    "recipe": "Decadent layers of moist chocolate cake filled with velvety chocolate ganache. A timeless indulgence for chocolate lovers.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 7.99,
+    "rating": 4.9
+  },
+
+  {
+    "name": "Cappuccino",
+    "recipe": "Equal parts espresso, steamed milk, and frothed milk. A balanced and creamy coffee with a layer of foam on top.",
+    "image": "https://i.ibb.co/WnymVRh/m8.png",
+    "category": "Coffee",
+    "price": 3.99,
+    "rating": 4.7
+  },
+  {
+    "name": "Latte Macchiato",
+    "recipe": "Steamed milk with a shot of espresso on top. A layered and visually appealing coffee with a rich and smooth taste.",
+    "image": "https://i.ibb.co/WnymVRh/m8.png",
+    "category": "Coffee",
+    "price": 4.49,
+    "rating": 4.6
+  },
+  {
+    "name": "Cold Brew",
+    "recipe": "Coffee brewed with cold water over an extended period, resulting in a smooth, less acidic, and highly caffeinated beverage.",
+    "image": "https://i.ibb.co/WnymVRh/m8.png",
+    "category": "Coffee",
+    "price": 4.99,
+    "rating": 4.9
+  },
+  {
+    "name": "Mocha",
+    "recipe": "Espresso, steamed milk, and chocolate syrup, topped with whipped cream. A delightful and indulgent chocolate-infused coffee treat.",
+    "image": "https://i.ibb.co/WnymVRh/m8.png",
+    "category": "Coffee",
+    "price": 5.49,
+    "rating": 4.5
+  },
+  {
+    "name": "Americano",
+    "recipe": "Diluted espresso with hot water. A simple and strong coffee option for those who prefer a larger cup.",
+    "image": "https://i.ibb.co/WnymVRh/m8.png",
+    "category": "Coffee",
+    "price": 3.29,
+    "rating": 4.6
+  },
+  {
+    "name": "Flat White",
+    "recipe": "Similar to a latte but with microfoam instead of frothed milk. A strong and velvety coffee with a higher coffee-to-milk ratio.",
+    "image": "https://i.ibb.co/WnymVRh/m8.png",
+    "category": "Coffee",
+    "price": 4.79,
+    "rating": 4.8
+  },
+  {
+    "name": "Affogato",
+    "recipe": "A scoop of vanilla ice cream or gelato drowned in a shot of hot espresso. A delightful coffee and dessert combination.",
+    "image": "https://i.ibb.co/WnymVRh/m8.png",
+    "category": "Coffee",
+    "price": 6.99,
+    "rating": 4.7
+  },
+  {
+    "name": "Irish Coffee",
+    "recipe": "Hot coffee with a shot of Irish whiskey and sugar, topped with cream. A warming and spirited coffee drink.",
+    "image": "https://i.ibb.co/WnymVRh/m8.png",
+    "category": "Coffee",
+    "price": 7.99,
+    "rating": 4.9
+  },
+  {
+    "name": "Turmeric Latte",
+    "recipe": "Golden milk made with turmeric, ginger, and other spices, mixed with steamed milk. A warm and anti-inflammatory coffee alternative.",
+    "image": "https://i.ibb.co/WnymVRh/m8.png",
+    "category": "Coffee",
+    "price": 5.99,
+    "rating": 4.5
+  },
+  {
+    "name": "Hazelnut Caramel Macchiato",
+    "recipe": "Espresso with steamed milk, hazelnut syrup, caramel drizzle, and a dollop of foam. A sweet and nutty delight.",
+    "image": "https://i.ibb.co/WnymVRh/m8.png",
+    "category": "Coffee",
+    "price": 6.49,
+    "rating": 4.8
+  },
+  {
+    "name": "Maple Pecan Latte",
+    "recipe": "Espresso with steamed milk, maple syrup, and toasted pecans. A comforting fall-inspired coffee treat.",
+    "image": "https://i.ibb.co/WnymVRh/m8.png",
+    "category": "Coffee",
+    "price": 5.79,
+    "rating": 4.6
+  },
+  {
+    "name": "Vietnamese Iced Coffee",
+    "recipe": "Strong black coffee sweetened with condensed milk and poured over ice. A refreshing and sweetened iced coffee.",
+    "image": "https://i.ibb.co/WnymVRh/m8.png",
+    "category": "Coffee",
+    "price": 4.59,
+    "rating": 4.7
+  },
+  {
+    "name": "Pumpkin Spice Latte",
+    "recipe": "Espresso with steamed milk, pumpkin spice syrup, and a sprinkle of cinnamon. A seasonal favorite for autumn coffee lovers.",
+    "image": "https://i.ibb.co/WnymVRh/m8.png",
+    "category": "Coffee",
+    "price": 5.99,
+    "rating": 4.5
+  },
+  {
+    "name": "Matcha Green Tea Latte",
+    "recipe": "Matcha green tea powder blended with steamed milk. A vibrant and antioxidant-rich alternative to traditional coffee.",
+    "image": "https://i.ibb.co/WnymVRh/m8.png",
+    "category": "Coffee",
+    "price": 6.99,
+    "rating": 4.8
+  },
+  {
+    "name": "Classic Mojito",
+    "recipe": "Fresh mint, lime wedges, and simple syrup muddled together, mixed with white rum and soda water. A refreshing and timeless cocktail.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 8.99,
+    "rating": 4.7
+  },
+  {
+    "name": "Virgin Piña Colada",
+    "recipe": "Pineapple juice, coconut cream, and crushed ice blended to perfection. A non-alcoholic tropical treat for all ages.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 6.49,
+    "rating": 4.5
+  },
+  {
+    "name": "Sparkling Berry Lemonade",
+    "recipe": "Freshly squeezed lemons, mixed berries, simple syrup, and sparkling water. A bubbly and fruity twist on classic lemonade.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 4.99,
+    "rating": 4.8
+  },
+  {
+    "name": "Ginger Mule",
+    "recipe": "Vodka, ginger beer, and lime juice over ice. A zesty and effervescent cocktail with a hint of spice.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 9.99,
+    "rating": 4.6
+  },
+  {
+    "name": "Iced Matcha Latte",
+    "recipe": "Smooth matcha green tea powder whisked with milk, poured over ice. A refreshing and antioxidant-rich cold beverage.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 5.79,
+    "rating": 4.9
+  },
+  {
+    "name": "Watermelon Mint Cooler",
+    "recipe": "Fresh watermelon blended with mint, lime juice, and a splash of soda. A hydrating and cooling beverage for hot days.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 7.49,
+    "rating": 4.7
+  },
+  {
+    "name": "Blue Lagoon Mocktail",
+    "recipe": "Blue curaçao syrup, pineapple juice, and lemonade over ice. A visually stunning and alcohol-free tropical mocktail.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 5.99,
+    "rating": 4.5
+  },
+  {
+    "name": "Strawberry Basil Lemonade",
+    "recipe": "Fresh strawberries, basil leaves, and lemonade served over ice. A sweet and herb-infused twist on classic lemonade.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 6.99,
+    "rating": 4.8
+  },
+
+  {
+    "name": "Coconut Water Refresher",
+    "recipe": "Pure coconut water with a splash of lime and a hint of honey. A hydrating and natural drink with a touch of sweetness.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 4.49,
+    "rating": 4.7
+  },
+  {
+    "name": "Raspberry Lemon Drop",
+    "recipe": "Raspberry vodka, triple sec, and fresh lemon juice shaken with ice. A sweet and tart twist on the classic lemon drop cocktail.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 8.49,
+    "rating": 4.9
+  },
+  {
+    "name": "Mango Tango Smoothie",
+    "recipe": "Ripe mango, Greek yogurt, orange juice, and a handful of spinach blended into a creamy and tropical smoothie.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 6.79,
+    "rating": 4.5
+  },
+  {
+    "name": "Lavender Lemon Fizz",
+    "recipe": "Lavender syrup, fresh lemon juice, and club soda over ice. A fragrant and effervescent drink with a touch of floral sweetness.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 7.99,
+    "rating": 4.8
+  },
+  {
+    "name": "Chai Tea Latte",
+    "recipe": "Spiced chai tea concentrate mixed with steamed milk. A comforting and aromatic latte with the warming flavors of chai spices.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 5.49,
+    "rating": 4.6
+  },
+  {
+    "name": "Tiramisu",
+    "recipe": "Classic Italian dessert featuring layers of coffee-soaked ladyfingers and mascarpone cream, dusted with cocoa powder. A coffee lover's dream.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 8.49,
+    "rating": 4.7
+  },
+  {
+    "name": "Cucumber Mint Cooler",
+    "recipe": "Fresh cucumber slices, mint leaves, lime juice, and soda water. A crisp and revitalizing drink for a burst of freshness.",
+    "image": "https://i.ibb.co/yYC3G40/drink1.png",
+    "category": "Drinks",
+    "price": 6.29,
+    "rating": 4.7
+  },
+  {
+    "name": "Grilled Lemon Herb Chicken",
+    "recipe": "Chicken breasts marinated in a blend of lemon, garlic, and fresh herbs, then grilled to perfection. A zesty and flavorful dish.",
+    "image": "https://i.ibb.co/nc6L8bk/chicken.png",
+    "category": "Chicken",
+    "price": 12.99,
+    "rating": 4.8
+  },
+  {
+    "name": "Honey Mustard Baked Chicken",
+    "recipe": "Chicken thighs coated in a sweet and tangy honey mustard glaze, then baked until golden and juicy. Irresistibly delicious and easy to make.",
+    "image": "https://i.ibb.co/nc6L8bk/chicken.png",
+    "category": "Chicken",
+    "price": 10.49,
+    "rating": 4.7
+  },
+  {
+    "name": "Spicy Buffalo Chicken Wings",
+    "recipe": "Crispy chicken wings tossed in a spicy buffalo sauce, served with celery sticks and blue cheese dressing. A classic and fiery appetizer.",
+    "image": "https://i.ibb.co/nc6L8bk/chicken.png",
+    "category": "Chicken",
+    "price": 8.99,
+    "rating": 4.9
+  },
+  {
+    "name": "Creamy Garlic Parmesan Chicken",
+    "recipe": "Chicken breasts seared to perfection, smothered in a rich and creamy garlic parmesan sauce. A decadent and comforting chicken dish.",
+    "image": "https://i.ibb.co/nc6L8bk/chicken.png",
+    "category": "Chicken",
+    "price": 14.99,
+    "rating": 4.6
+  },
+  {
+    "name": "Teriyaki Chicken Stir-Fry",
+    "recipe": "Sliced chicken breast stir-fried with colorful vegetables in a sweet and savory teriyaki sauce. A quick and delicious Asian-inspired meal.",
+    "image": "https://i.ibb.co/nc6L8bk/chicken.png",
+    "category": "Chicken",
+    "price": 11.49,
+    "rating": 4.8
+  },
+  {
+    "name": "Crispy Fried Chicken Tenders",
+    "recipe": "Tender chicken strips coated in a seasoned flour mixture, deep-fried until golden and crispy. Perfect for a crunchy and satisfying snack.",
+    "image": "https://i.ibb.co/nc6L8bk/chicken.png",
+    "category": "Chicken",
+    "price": 9.79,
+    "rating": 4.5
+  },
+  {
+    "name": "Lemon Garlic Roast Chicken",
+    "recipe": "Whole chicken seasoned with lemon, garlic, and herbs, then oven-roasted until golden and juicy. A classic and comforting roast chicken dish.",
+    "image": "https://i.ibb.co/nc6L8bk/chicken.png",
+    "category": "Chicken",
+    "price": 16.99,
+    "rating": 4.7
+  },
+  {
+    "name": "Balsamic Glazed Chicken Thighs",
+    "recipe": "Chicken thighs glazed in a balsamic reduction, roasted until caramelized and tender. A sweet and tangy twist on roasted chicken.",
+    "image": "https://i.ibb.co/nc6L8bk/chicken.png",
+    "category": "Chicken",
+    "price": 13.49,
+    "rating": 4.6
+  },
+  {
+    "name": "Mango Habanero Grilled Chicken",
+    "recipe": "Chicken breasts marinated in a spicy mango habanero sauce, then grilled to perfection. A tropical and fiery flavor explosion.",
+    "image": "https://i.ibb.co/nc6L8bk/chicken.png",
+    "category": "Chicken",
+    "price": 15.29,
+    "rating": 4.9
+  },
+  {
+    "name": "Mushroom Marsala Chicken",
+    "recipe": "Chicken cutlets in a rich and savory mushroom marsala sauce, served over pasta or rice. An elegant and hearty chicken dinner.",
+    "image": "https://i.ibb.co/nc6L8bk/chicken.png",
+    "category": "Chicken",
+    "price": 17.99,
+    "rating": 4.8
+  },
+  {
+    "name": "Caesar Salad",
+    "recipe": "Crisp romaine lettuce, garlic croutons, shaved parmesan, and Caesar dressing. A classic and savory salad that never goes out of style.",
+    "image": "https://i.ibb.co/dWNPkBB/salad.png",
+    "category": "Salad",
+    "price": 8.99,
+    "rating": 4.7
+  },
+  {
+    "name": "Caprese Turkey Burger",
+    "recipe": "Turkey patty with mozzarella, tomato, basil pesto, and balsamic glaze. A light and refreshing twist on the burger.",
+    "image": "https://i.ibb.co/KVQLGCG/b5.png",
+    "category": "Burger",
+    "price": 10.49,
+    "rating": 4.7
+  },
+  {
+    "name": "Gourmet Truffle Burger",
+    "recipe": "Beef patty with truffle aioli, arugula, caramelized onions, and Gruyère cheese. An upscale burger experience with luxurious flavors.",
+    "image": "https://i.ibb.co/KVQLGCG/b5.png",
+    "category": "Burger",
+    "price": 13.99,
+    "rating": 4.9
+  },
+  {
+    "name": "Mango Avocado Quinoa Salad",
+    "recipe": "Quinoa, diced mango, avocado, cherry tomatoes, and a lime vinaigrette. A refreshing and nutritious salad with a tropical twist.",
+    "image": "https://i.ibb.co/dWNPkBB/salad.png",
+    "category": "Salad",
+    "price": 10.49,
+    "rating": 4.8
+  },
+
+  {
+    "name": "Caprese Salad",
+    "recipe": "Fresh mozzarella, tomatoes, and basil leaves drizzled with balsamic glaze. A simple and elegant salad showcasing the best of Italian flavors.",
+    "image": "https://i.ibb.co/dWNPkBB/salad.png",
+    "category": "Salad",
+    "price": 12.99,
+    "rating": 4.9
+  },
+  {
+    "name": "Asian Sesame Chicken Salad",
+    "recipe": "Grilled chicken, mixed greens, mandarin oranges, crispy noodles, and sesame dressing. A delightful fusion of flavors and textures.",
+    "image": "https://i.ibb.co/dWNPkBB/salad.png",
+    "category": "Salad",
+    "price": 11.49,
+    "rating": 4.8
+  },
+  {
+    "name": "Vanilla Bean Panna Cotta",
+    "recipe": "Smooth vanilla bean-infused custard served with a berry compote. Elegant and creamy, a perfect finale to any meal.",
+    "image": "https://i.ibb.co/HChMzf9/Dessert1.png",
+    "category": "Dessert",
+    "price": 6.49,
+    "rating": 4.7
+  },
+
+  {
+    "name": "Spinach Strawberry Walnut Salad",
+    "recipe": "Fresh spinach, sliced strawberries, candied walnuts, and balsamic vinaigrette. A vibrant and sweet salad perfect for summer.",
+    "image": "https://i.ibb.co/dWNPkBB/salad.png",
+    "category": "Salad",
+    "price": 10.79,
+    "rating": 4.6
+  },
+  {
+    "name": "Mexican Street Corn Salad",
+    "recipe": "Grilled corn, cotija cheese, lime, and chili powder. A flavorful and tangy salad inspired by the popular Mexican street food, elote.",
+    "image": "https://i.ibb.co/dWNPkBB/salad.png",
+    "category": "Salad",
+    "price": 9.79,
+    "rating": 4.9
+  },
+  {
+    "name": "Kale and Quinoa Power Salad",
+    "recipe": "Massaged kale, quinoa, roasted sweet potatoes, chickpeas, and tahini dressing. A nutrient-packed salad for a healthy and satisfying meal.",
+    "image": "https://i.ibb.co/dWNPkBB/salad.png",
+    "category": "Salad",
+    "price": 13.49,
+    "rating": 4.8
+  },
+  {
+    "name": "Chicken Caesar Pasta Salad",
+    "recipe": "Grilled chicken, penne pasta, cherry tomatoes, parmesan cheese, and Caesar dressing. A hearty and flavorful twist on the classic Caesar salad.",
+    "image": "https://i.ibb.co/dWNPkBB/salad.png",
+    "category": "Salad",
+    "price": 12.29,
+    "rating": 4.7
+  }
+]

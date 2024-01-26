@@ -1,0 +1,15 @@
+.banner {
+  /* background-image: url("../../../assets/home/banner2.png"); */
+  background-image: url("../../../assets/home/food banner.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media screen and (min-width: 778px) {
+  .banner {
+    background-image: url("../../../assets/home/banner2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
