@@ -2,54 +2,87 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
+import { useState } from "react";
+import { Spinner } from "@material-tailwind/react";
 
 const PaymentHistory = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-
-  const { data: payments = [] } = useQuery({
+  const [noData, setNoData] = useState();
+  const { data: payments = [], isLoading } = useQuery({
     queryKey: ["payments", user.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/payments/${user.email}`);
       return res.data;
     },
   });
+
+  if (payments?.length < 0) {
+    setNoData("No payments");
+  }
+
+  const dateString = "2023-11-21T05:30:08.128Z";
+  const dateObject = dateString.split("T")[0];
+  console.log(payments);
   return (
-    <div>
-      <SectionTitle subHeading={"At a Glance!"} heading={"PAYMENT HISTORY"} />
-      <h2 className="text-2xl font-semibold my-3">
-        Total Payments: {payments.length}
-      </h2>
-      <div className="overflow-x-auto">
-        <table className="table table-zebra">
-          <thead className="bg-[#D1A054] uppercase text-white ">
-            <tr>
-              <th>EMAIL</th>
-              <th>TOTAL PRICE</th>
-              <th>Transaction Id</th>
-              <th>PAYMENT DATE</th>
-              <th>Status</th>
+    <>
+      <SectionTitle subHeading={"Payments"} heading={"Payments History"} />
+
+      <div className="p-4 overflow-x-auto bg-white">
+        <table className="w-full table-auto">
+          <thead>
+            <tr className="text-xs text-left text-gray-500 dark:text-gray-400">
+              <th className="px-6 pb-3 font-medium">Transaction ID</th>
+              <th className="px-6 pb-3 font-medium ">Date </th>
+              <th className="px-6 pb-3 font-medium">Email </th>
+              <th className="px-6 pb-3 font-medium">Status </th>
             </tr>
           </thead>
           <tbody>
             {payments.map((payment) => (
-              <tr key={payment._id}>
-                <td>{payment.email}</td>
-                <td>${payment.price}</td>
-                <td>{payment.transactionId}</td>
-                <td>{payment.date}</td>
+              <tr
+                key={payment._id}
+                className="text-xs  border-b dark:text-gray-400 dark:bg-gray-800"
+              >
+                <td className="px-6 py-5 font-medium">
+                  {payment.transactionId}
+                </td>
+                <td className="px-6 py-5 font-medium ">{dateObject}</td>
+                <td className="px-6 py-5 font-medium ">{payment.email}</td>
                 <td>
-                  <button className="uppercase font-semibold bg-indigo-600 text-white px-3 py-2 rounded">
+                  <span
+                    className={`inline-block px-3 py-1 text-center 
+                ${payment.status === "pending" && "text-green-600 bg-green-100"}
+                ${
+                  payment.status === "Delivered" &&
+                  "text-[#ffcc00] bg-[rgb(255,204,0,0.2)]"
+                }
+                       
+                     rounded-full`}
+                  >
                     {payment.status}
-                  </button>
+                  </span>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        <div className="flex flex-col py-5 justify-center items-center">
+          {isLoading && <Spinner color="green" />}
+          {noData}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
 export default PaymentHistory;
+
+{
+  /* <span className="inline-block px-2 py-1 text-center text-red-600 bg-red-100 rounded-full dark:text-red-700 dark:bg-red-200">
+                    {payment.status}
+          </span>
+          <span className="inline-block px-2 py-1 text-center text-yellow-600 bg-yellow-100 rounded-full dark:text-yellow-700 dark:bg-yellow-200">
+                    {payment.status}
+  </span> */
+}

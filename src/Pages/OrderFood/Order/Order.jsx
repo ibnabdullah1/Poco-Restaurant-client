@@ -43,7 +43,7 @@ const Order = () => {
     <div>
       <Cover location="Order Food"></Cover>
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-        <TabList className="flex cursor-pointer justify-center gap-3 text-lg  mt-20 mb-10">
+        <TabList className="flex flex-wrap cursor-pointer justify-center gap-3 text-lg  mt-20 mb-10">
           {categories.map((cat, index) => (
             <Tab
               key={index}

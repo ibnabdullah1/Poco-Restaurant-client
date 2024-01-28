@@ -5,26 +5,36 @@ import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
-
+import { MdDeleteOutline, MdOutlineChangeCircle } from "react-icons/md";
+import "./user.css";
+import { useState } from "react";
+import { Spinner } from "@material-tailwind/react";
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
-  const { refetch, data: users = [] } = useQuery({
+  const [noData, setNoData] = useState();
+
+  const {
+    refetch,
+    data: users = [],
+    isLoading,
+  } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
       return res.data;
     },
   });
-
-  const handleMakeAdmin = (user) => {
-    console.log(user);
-    axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
-      console.log(res.data);
+  if (users?.length < 0) {
+    setNoData("Empty users");
+  }
+  const handleChangeRole = (user, role) => {
+    axiosSecure.patch(`/users/admin/${user._id}`, { role }).then((res) => {
       if (res.data.modifiedCount > 0) {
         refetch();
         toast.success("User role updated successfully");
       }
     });
+    console.log(role);
   };
 
   const handleDelete = (user) => {
@@ -49,56 +59,83 @@ const AllUsers = () => {
   };
 
   return (
-    <div>
+    <>
       <SectionTitle heading={"MANAGE ALL USERS"} subHeading={"How many"} />
 
-      <div className="flex justify-evenly my-4">
-        <h2 className="text-3xl"> All users</h2>
-        <h2 className="text-3xl">Total users {users?.length}</h2>
-      </div>
-      <div className="overflow-x-auto">
-        <table className="table table-zebra w-full">
-          <thead className="bg-[#D1A054] text-white">
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user, index) => (
-              <tr key={user._id}>
-                <th>{index + 1}</th>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>
-                  {user.role === "admin" ? (
-                    "admin"
-                  ) : (
-                    <button
-                      onClick={() => handleMakeAdmin(user)}
-                      className="btn btn-ghost bg-[#D1A054] text-lg text-white"
-                    >
-                      <FaUsers />
-                    </button>
-                  )}
-                </td>
-                <td>
-                  <button
-                    onClick={() => handleDelete(user)}
-                    className="btn btn-ghost bg-[#B91C1C]  text-white"
-                  >
-                    <FaTrashAlt></FaTrashAlt>
-                  </button>
-                </td>
+      <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default  dark:bg-boxdark sm:px-7.5 xl:pb-1">
+        <div className="max-w-full overflow-x-auto">
+          <table className="w-full table-auto">
+            <thead>
+              <tr className="bg-gray-2 text-left dark:bg-meta-4">
+                <th className="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
+                  Name
+                </th>
+                <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
+                  Email
+                </th>
+                <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
+                  Role
+                </th>
+                <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
+                  Action
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {users.map((user, i) => (
+                <tr key={i}>
+                  <td className="border-b border-[#eee] py-5 px-4 ">
+                    <p className="text-black dark:text-white">{user.name}</p>
+                  </td>
+                  <td className="border-b border-[#eee] py-5 px-4 ">
+                    <p className="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-sm font-medium text-success">
+                      {user.email}
+                    </p>
+                  </td>
+                  <td className="border-b border-[#eee] py-5 px-4 ">
+                    <p className="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-sm font-medium text-success">
+                      {user.role ? user.role : "user"}
+                    </p>
+                  </td>
+
+                  <td className=" items-center justify-center gap-3 p-2.5 flex">
+                    <div className="has-tooltip mt-10">
+                      <span className="tooltip rounded shadow-lg p-1 bg-gray-100 text-gray-900 -mt-8">
+                        Make a User
+                      </span>
+                      <button onClick={() => handleChangeRole(user, "user")}>
+                        <MdOutlineChangeCircle className="hover:text-green-500 text-2xl" />
+                      </button>
+                    </div>
+
+                    <div className="has-tooltip mt-10">
+                      <span className="tooltip rounded shadow-lg p-1 bg-gray-100 text-gray-800 -mt-8">
+                        Delete
+                      </span>
+                      <button onClick={() => handleDelete(user)}>
+                        <MdDeleteOutline className="hover:text-red-500 text-2xl" />
+                      </button>
+                    </div>
+                    <div className="has-tooltip mt-10">
+                      <span className="tooltip rounded shadow-lg p-1 bg-gray-100 text-gray-900 -mt-8">
+                        Make a Admin
+                      </span>
+                      <button onClick={() => handleChangeRole(user, "admin")}>
+                        <MdOutlineChangeCircle className="hover:text-green-500 text-2xl" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="flex flex-col py-5 justify-center items-center">
+            {isLoading && <Spinner color="green" />}
+            {noData}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

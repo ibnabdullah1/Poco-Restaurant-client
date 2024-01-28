@@ -1,14 +1,14 @@
 import PropTypes from "prop-types";
 import useAuth from "../Hooks/useAuth";
 import { Navigate, useLocation } from "react-router-dom";
+import { Spinner } from "@material-tailwind/react";
 const PrivateRoute = ({ children }) => {
   const location = useLocation();
-  console.log(location);
   const { user, loading } = useAuth();
   if (loading) {
     return (
       <div className="min-h-[70vh] flex justify-center items-center ">
-        <span className="loading loading-ring loading-lg"></span>
+        <Spinner color="green" />
       </div>
     );
   }

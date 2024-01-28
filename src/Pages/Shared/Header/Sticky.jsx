@@ -4,9 +4,9 @@ import MoneyRent from "./MoneyRant";
 import { Link } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 const Sticky = () => {
-  const { logout, user } = useAuth();
+  const { logOut, user } = useAuth();
   const handleLogout = () => {
-    logout();
+    logOut();
   };
 
   return (

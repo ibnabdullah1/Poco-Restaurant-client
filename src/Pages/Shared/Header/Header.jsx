@@ -8,8 +8,10 @@ const Header = () => {
     <>
       <Sticky />
       <hr />
-      <SearchFunc />
-      <NavbarWithMegaMenu />
+      <div className="  z-40 sticky top-0 bg-white w-full ">
+        <SearchFunc />
+        <NavbarWithMegaMenu />
+      </div>
       <MobileNavbar />
     </>
   );

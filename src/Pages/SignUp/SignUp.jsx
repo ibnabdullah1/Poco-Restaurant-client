@@ -36,19 +36,16 @@ const SignUp = () => {
 
     // creating a new user
     createUser(email, password)
-      .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
+      .then(() => {
         navigate("/");
         updateUserProfile(name, image).then(() => {
           const userInfo = {
             name,
             email,
           };
-          console.log(userInfo);
+
           axiosPublic.post("/users", userInfo).then((res) => {
             if (res.data.insertedId) {
-              console.log("User added to the database");
               form.reset();
               toast.success("User created successfully");
               navigate("/");
@@ -60,7 +57,7 @@ const SignUp = () => {
         toast.error(error.message);
       });
   };
-  console.log(error);
+
   return (
     <div
       style={{

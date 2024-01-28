@@ -18,7 +18,7 @@ const Testimonials = () => {
     setStartIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://poco-restaurant-server.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);

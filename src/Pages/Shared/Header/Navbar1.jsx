@@ -30,19 +30,26 @@ import { MdDashboardCustomize } from "react-icons/md";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import { FiPhoneCall } from "react-icons/fi";
+import { GiTeamIdea } from "react-icons/gi";
 import pocoLogo from "../../../assets/pocoLogo.png";
 import poco from "../../../assets/logo_svg.svg";
 import { CartDrawer } from "../../../Components/DrawerCart/CartDrawer";
+import Dropdown from "../../../Components/DropDown/Dropdown";
 const pagesMenuItems = [
   {
     title: "FAQs",
     icon: MdOutlineProductionQuantityLimits,
-    address: "",
+    address: "faqs",
   },
   {
     title: "Support",
     icon: RiCustomerService2Line,
     address: "",
+  },
+  {
+    title: "Our Team",
+    icon: GiTeamIdea,
+    address: "our-team",
   },
   {
     title: "Special Offers",
@@ -84,7 +91,7 @@ const homeMenuItems = [
   {
     title: "Checkout",
     icon: IoBagCheckOutline,
-    address: "checkout",
+    address: "dashboard/checkout",
   },
 ];
 
@@ -101,8 +108,8 @@ function PagesListMenu({ setOpenNav }) {
           isPending
             ? "pending"
             : isActive
-            ? " text-[#ffffff] lg:text-gray-800 font-semibold "
-            : "text-[#ffffff] lg:text-gray-800"
+            ? " text-[#ffcc00] font-semibold "
+            : "text-[#303030] "
         }
       >
         <MenuItem className="flex items-center gap-3 rounded-lg">
@@ -310,7 +317,7 @@ function NavList({ setOpenNav, openNav }) {
       >
         <ListItem className="flex items-center text-white gap-2 py-2 pr-4">
           <NavLink
-            to="/contact-us"
+            to="/contact"
             className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "text-[#ffcc00]  " : ""
             }
@@ -334,7 +341,7 @@ export function NavbarWithMegaMenu() {
   }, []);
 
   return (
-    <div className=" bg-[#333333] z-50 sticky top-0 px-4 w-full py-2">
+    <div className=" bg-[#333333] z-40 sticky top-0 px-4 w-full py-2">
       <div className="flex items-center max-w-5xl mx-auto bg-[#333333] justify-between text-white">
         <div className="hidden lg:block">
           <NavList setOpenNav={setOpenNav} openNav={openNav} />
@@ -350,19 +357,25 @@ export function NavbarWithMegaMenu() {
           </div>
         </div>
 
-        <div className="flex items-center lg:hidden">
+        <div className="flex gap-2 items-center lg:hidden">
           <CartDrawer />
-
+          <Dropdown />
           <IconButton
             variant="text"
             color="blue-gray"
-            className="lg:hidden"
+            className="lg:hidden rounded-full"
             onClick={() => setOpenNav(!openNav)}
           >
             {openNav ? (
-              <XMarkIcon className="h-6 w-6 text-white" strokeWidth={4} />
+              <XMarkIcon
+                className="h-6 w-6 rounded-full text-white"
+                strokeWidth={4}
+              />
             ) : (
-              <Bars3Icon className="h-6 w-6  text-white" strokeWidth={4} />
+              <Bars3Icon
+                className="h-6 w-6 rounded-full text-white"
+                strokeWidth={4}
+              />
             )}
           </IconButton>
         </div>

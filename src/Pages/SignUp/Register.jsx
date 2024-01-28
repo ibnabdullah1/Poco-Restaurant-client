@@ -1,180 +1,208 @@
-// import { useContext } from "react";
-// import { Helmet } from "react-helmet-async";
-// import { FcGoogle } from "react-icons/fc";
-// import { useForm } from "react-hook-form";
-// import { Link, useNavigate } from "react-router-dom";
-// import Swal from "sweetalert2";
-// import { AuthContext } from "../../../providers/AuthProvider";
-// import loginImg from "../../../assets/others/authentication2 1.png";
-// const SignUp = () => {
-//   const {
-//     register,
-//     handleSubmit,
-//     reset,
-//     formState: { errors },
-//   } = useForm();
-//   const { createUser, updateUserProfile } = useContext(AuthContext);
-//   const navigate = useNavigate();
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import {} from "react-icons/fc";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
+import useAuth from "../../Hooks/useAuth";
+import { TbFidgetSpinner } from "react-icons/tb";
+import { imageUpload } from "../../Api/utilis";
+const Register = () => {
+  const axiosPublic = useAxiosPublic();
+  const location = useLocation();
+  const [showPassword, setShowPassword] = useState(false);
+  const [passwordError, setPasswordError] = useState("");
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const { createUser, updateUserProfile } = useAuth();
+  const from = location.state?.from?.pathname || "/";
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const form = e.target;
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const image = form.image.files[0];
 
-//   const onSubmit = (data) => {
-//     console.log(data);
+    setPasswordError("");
 
-//     createUser(data.email, data.password).then((result) => {
-//       const loggedUser = result.user;
-//       const password = data.password;
-//       console.log(password);
-//       console.log(loggedUser);
-//       updateUserProfile(data.name, data.photoURL)
-//         .then(() => {
-//           console.log("user profile info updated");
-//           reset();
-//           Swal.fire({
-//             position: "top-end",
-//             icon: "success",
-//             title: "User created successfully.",
-//             showConfirmButton: false,
-//             timer: 1500,
-//           });
-//           navigate("/");
-//         })
-//         .catch((error) => console.log(error));
-//     });
-//   };
+    const passwordValidation = validatePassword(password);
+    if (passwordValidation) {
+      setPasswordError(passwordValidation);
+      setLoading(false);
+      return;
+    }
 
-//   return (
-//     <div
-//       style={{
-//         backgroundImage: `url("https://i.ibb.co/rcwD2y4/authentication.png")`,
-//       }}
-//       className="flex justify-around items-center min-h-screen py-10"
-//     >
-//       <Helmet>
-//         <title>Bistro Boss | Sign Up</title>
-//       </Helmet>
-//       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10  text-gray-900">
-//         <div className="mb-8 text-center">
-//           <h1 className="my-3 text-4xl font-bold">Sign Up</h1>
-//         </div>
-//         <form onSubmit={handleSubmit(onSubmit)} className=" ">
-//           <div className="form-control">
-//             <label className="label">
-//               <span className="label-text">Name</span>
-//             </label>
-//             <input
-//               type="text"
-//               {...register("name", { required: true })}
-//               name="name"
-//               placeholder="Name"
-//               className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#D1A054] bg-gray-200 text-gray-900"
-//             />
-//             {errors.name && (
-//               <span className="text-red-600">Name is required</span>
-//             )}
-//           </div>
-//           <div className="form-control">
-//             <label className="label">
-//               <span className="label-text">Photo URL</span>
-//             </label>
-//             <input
-//               type="text"
-//               {...register("photoURL", { required: true })}
-//               placeholder="Photo URL"
-//               className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#D1A054] bg-gray-200 text-gray-900"
-//             />
-//             {errors.photoURL && (
-//               <span className="text-red-600">Photo URL is required</span>
-//             )}
-//           </div>
-//           <div className="form-control">
-//             <label className="label">
-//               <span className="label-text">Email</span>
-//             </label>
-//             <input
-//               type="email"
-//               {...register("email", { required: true })}
-//               name="email"
-//               placeholder="email"
-//               className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#D1A054] bg-gray-200 text-gray-900"
-//             />
-//             {errors.email && (
-//               <span className="text-red-600">Email is required</span>
-//             )}
-//           </div>
-//           <div className="form-control">
-//             <label className="label">
-//               <span className="label-text">Password</span>
-//             </label>
-//             <input
-//               //   type="password"
-//               {...register("password", {
-//                 required: true,
-//                 minLength: 6,
-//                 maxLength: 20,
-//                 pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
-//               })}
-//               placeholder="password"
-//               className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#D1A054] bg-gray-200 text-gray-900"
-//             />
-//             {errors.password?.type === "required" && (
-//               <p className="text-red-600">Password is required</p>
-//             )}
-//             {errors.password?.type === "minLength" && (
-//               <p className="text-red-600">Password must be 6 characters</p>
-//             )}
-//             {errors.password?.type === "maxLength" && (
-//               <p className="text-red-600">
-//                 Password must be less than 20 characters
-//               </p>
-//             )}
-//             {errors.password?.type === "pattern" && (
-//               <p className="text-red-600">
-//                 Password must have one Uppercase one lower case, one number and
-//                 one special character.
-//               </p>
-//             )}
-//             <label className="label">
-//               <a href="#" className="label-text-alt link link-hover">
-//                 Forgot password?
-//               </a>
-//             </label>
-//           </div>
-//           <div>
-//             <button
-//               type="submit"
-//               className="bg-[#D1A054] w-full rounded-md py-3 text-white"
-//             >
-//               Sign Up
-//             </button>
-//           </div>
-//         </form>
-//         <div className="flex items-center pt-4 space-x-1">
-//           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-//           <p className="px-3 text-sm dark:text-gray-400">
-//             Signup with social accounts
-//           </p>
-//           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-//         </div>
-//         <div className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer">
-//           <FcGoogle size={32} />
+    try {
+      const imageData = await imageUpload(image);
 
-//           <p>Continue with Google</p>
-//         </div>
-//         <p className="px-6 text-sm text-center text-gray-400">
-//           Already have an account?{" "}
-//           <Link
-//             to="/login"
-//             className="hover:underline hover:text-[#D1A054] text-gray-600"
-//           >
-//             Login
-//           </Link>
-//           .
-//         </p>
-//       </div>
-//       <div className="">
-//         <img className="w-[648px] h-auto" src={loginImg} alt="" />
-//       </div>
-//     </div>
-//   );
-// };
+      createUser(email, password)
+        .then(() => {
+          updateUserProfile(name, imageData?.data?.display_url).then(() => {
+            const userInfo = {
+              name,
+              email,
+              role: "user",
+              userProfile: imageData?.data?.display_url,
+            };
+            console.log(userInfo);
+            setLoading(false);
+            axiosPublic.post("/users", userInfo).then((res) => {
+              if (res.data.insertedId) {
+                form.reset();
+                setLoading(false);
+                toast.success("User created successfully");
+                navigate(from, { replace: true });
+              }
+            });
+          });
+        })
+        .catch((error) => {
+          setLoading(false);
+          toast.error(error.message);
+        });
+    } catch (error) {
+      setLoading(false);
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const validatePassword = (password) => {
+    if (password.length < 6) {
+      return "Password must be at least 6 characters long.";
+    }
 
-// export default SignUp;
+    if (!/[A-Z]/.test(password)) {
+      return "Password must contain at least one capital letter.";
+    }
+
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      return "Password must contain at least one special character.";
+    }
+
+    return setPasswordError("");
+  };
+
+  return (
+    <div className="flex justify-center items-center py-20">
+      <div
+        style={{
+          boxShadow: "0px 0px 10px rgba(0, 0, 0,0.06)",
+        }}
+        className="flex flex-col md:min-w-[400px] max-w-lg p-6 rounded-md sm:p-10 bg-white  text-gray-900"
+      >
+        <div className="mb-8 text-center">
+          <h1 className="my-3 text-2xl text-gray-800 font-bold">Sign In</h1>
+          <p className="text-xl font-semibold text-gray-600">
+            Welcome to <span className="text-[#00B207]">Poco Restaurant</span>
+          </p>
+        </div>
+        <form
+          onSubmit={handleRegister}
+          noValidate=""
+          action=""
+          className="space-y-6 ng-untouched ng-pristine ng-valid"
+        >
+          <div className="space-y-4">
+            <div>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                required
+                placeholder="Your name"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#00B207] bg-white text-gray-900"
+                data-temp-mail-org="0"
+              />
+            </div>{" "}
+            <div>
+              <input
+                required
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+              />
+            </div>
+            <div>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                placeholder="Email"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#00B207] bg-white text-gray-900"
+                data-temp-mail-org="0"
+              />
+            </div>
+            <div>
+              <div className="mb-4 relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  autoComplete="new-password"
+                  id="password"
+                  required
+                  placeholder="Password"
+                  className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#00B207] bg-white text-gray-900"
+                />
+                <span
+                  className="absolute top-[14px] right-4"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                </span>
+              </div>
+
+              {passwordError && (
+                <p
+                  style={{
+                    color: "red",
+                    fontSize: "0.8rem",
+                    marginTop: "0.5rem",
+                  }}
+                >
+                  {passwordError}
+                </p>
+              )}
+            </div>
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              className="bg-[#00B207] w-full rounded-md transform font-semibold duration-100 hover:bg-[rgb(0,178,7,0.8)] py-3 text-white"
+            >
+              {loading ? (
+                <TbFidgetSpinner className="animate-spin m-auto" />
+              ) : (
+                "Continue"
+              )}
+            </button>
+          </div>
+        </form>
+        <div className="space-y-1">
+          <button className="text-xs hover:underline hover:text-[#D1A054] text-gray-400">
+            Forgot password?
+          </button>
+        </div>
+        <SocialLogin />
+        <p className="px-6 mt-3 text-sm text-center text-gray-400">
+          Don’t have account?
+          <Link
+            to="/login"
+            className="hover:underline font-semibold hover:text-[#00B207] text-[#00B207]"
+          >
+            Sing In
+          </Link>
+          .
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Register;

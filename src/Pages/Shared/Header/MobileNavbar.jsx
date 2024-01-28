@@ -28,7 +28,7 @@ const MobileNavbar = () => {
           </button>{" "}
         </NavLink>
         <NavLink
-          to={"/shopping-cart"}
+          to={"dashboard/shopping-cart"}
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
@@ -47,7 +47,7 @@ const MobileNavbar = () => {
         </NavLink>
 
         <NavLink
-          to={"/categories"}
+          to={"/order"}
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
@@ -84,7 +84,7 @@ const MobileNavbar = () => {
         </NavLink>
 
         <NavLink
-          to={"/profile"}
+          to={"/dashboard/user-profile"}
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"

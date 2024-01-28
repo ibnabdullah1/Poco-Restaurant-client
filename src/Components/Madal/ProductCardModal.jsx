@@ -20,6 +20,7 @@ import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useCart from "../../Hooks/useCart";
+import { Spinner } from "@material-tailwind/react";
 export default function MyModal({ food }) {
   let [isOpen, setIsOpen] = useState(false);
   const [itemQuantity, setItemQuantity] = useState(1);
@@ -41,7 +42,7 @@ export default function MyModal({ food }) {
   };
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Spinner color="amber" />;
   }
   const handleQuantityDown = () => {
     if (itemQuantity >= 1) {
@@ -50,7 +51,27 @@ export default function MyModal({ food }) {
   };
 
   const totalPrice = (food?.price * itemQuantity).toFixed(2);
+
+  const handleAddToWishlist = () => {
+    setIsOpen(false);
+    const existingWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    const cartItem = {
+      menuItemID: food?._id,
+      email: user?.email,
+      category: food?.category,
+      foodName: food?.name,
+      price: totalPrice,
+      rating: food?.rating,
+      quantity: itemQuantity,
+      image: food?.image,
+    };
+    const updatedWishlist = [cartItem, ...existingWishlist];
+    localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+    toast.success("Product added successfully to wishlist");
+  };
+
   const handleAddToCart = () => {
+    setIsOpen(false);
     setItemQuantity(0);
     if (user && user.email) {
       const cartItem = {
@@ -63,7 +84,6 @@ export default function MyModal({ food }) {
         quantity: itemQuantity,
         image: food?.image,
       };
-      console.log(cartItem);
       axiosSecure.post("/carts", cartItem).then((res) => {
         if (res.data.insertedId) {
           toast.success("Product added successfully to cart");
@@ -235,7 +255,10 @@ export default function MyModal({ food }) {
                           <HiOutlineShoppingBag />
                         </button>
 
-                        <button className="bg-[rgb(239,240,210,0.4)] p-3 text-[#ffcc00] hover:bg-[#ffcc00] hover:text-white rounded-full transform duration-500">
+                        <button
+                          onClick={handleAddToWishlist}
+                          className="bg-[rgb(239,240,210,0.4)] p-3 text-[#ffcc00] hover:bg-[#ffcc00] hover:text-white rounded-full transform duration-500"
+                        >
                           <CiHeart />
                         </button>
                       </div>

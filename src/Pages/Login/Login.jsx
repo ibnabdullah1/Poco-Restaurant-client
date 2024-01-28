@@ -1,17 +1,16 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import loginImg from "../../assets/others/authentication2 1.png";
 import useAuth from "../../Hooks/useAuth";
-import {
-  loadCaptchaEnginge,
-  LoadCanvasTemplate,
-  validateCaptcha,
-} from "react-simple-captcha";
-import { useEffect, useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+
+import { useState } from "react";
 import Swal from "sweetalert2";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
-
+import { TbFidgetSpinner } from "react-icons/tb";
+import toast from "react-hot-toast";
 const Login = () => {
-  const [disabled, setDisabled] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -23,135 +22,103 @@ const Login = () => {
     const email = form.email?.value;
     const password = form.password.value;
     signIn(email, password).then(() => {
-      Swal.fire({
-        title: "User Login Successful.",
-        showClass: {
-          popup: "animate__animated animate__fadeInDown",
-        },
-        hideClass: {
-          popup: "animate__animated animate__fadeOutUp",
-        },
-      });
+      toast.success("User Login  successfully");
       navigate(from, { replace: true });
     });
   };
 
-  useEffect(() => {
-    loadCaptchaEnginge(6);
-  }, []);
-
-  const handleValidateCaptcha = (e) => {
-    const user_captcha_value = e.target.value;
-    if (validateCaptcha(user_captcha_value)) {
-      setDisabled(false);
-    } else {
-      setDisabled(true);
-    }
-  };
-
   return (
-    <div
-      style={{
-        backgroundImage: `url("https://i.ibb.co/rcwD2y4/authentication.png")`,
-      }}
-      className="flex  justify-around  items-center min-h-screen py-10"
-    >
-      <div className="">
-        <img className="w-[648px] h-auto" src={loginImg} alt="" />
-      </div>
-
-      <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10  text-gray-900">
+    <div className="flex justify-center items-center py-20">
+      <div
+        style={{
+          boxShadow: "0px 0px 10px rgba(0, 0, 0,0.06)",
+        }}
+        className="flex flex-col md:min-w-[400px] max-w-lg p-6 rounded-md sm:p-10 bg-white  text-gray-900"
+      >
         <div className="mb-8 text-center">
-          <h1 className="my-3 text-4xl font-bold">Log In</h1>
+          <h1 className="my-3 text-2xl text-gray-800 font-bold">Log In</h1>
+          <p className="text-xl font-semibold text-gray-600">
+            Welcome to <span className="text-[#ffcc00]">Poco Restaurant</span>
+          </p>
         </div>
         <form
           onSubmit={handleLogin}
           noValidate=""
+          action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-4">
             <div>
-              <label htmlFor="email" className="block mb-2 text-sm">
-                Email address
-              </label>
               <input
                 type="email"
                 name="email"
                 id="email"
                 required
-                placeholder="Enter Your Email Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#D1A054] bg-gray-200 text-gray-900"
+                placeholder="Email"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#00B207] bg-white text-gray-900"
                 data-temp-mail-org="0"
               />
             </div>
-            <div className="form-control">
-              <label className="label">
-                <LoadCanvasTemplate />
-              </label>
-              <input
-                onBlur={handleValidateCaptcha}
-                type="text"
-                name="captcha"
-                placeholder="type the captcha above"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#D1A054] bg-gray-200 text-gray-900"
-              />
-            </div>
             <div>
-              <div className="flex justify-between">
-                <label htmlFor="password" className="text-sm mb-2">
-                  Password
-                </label>
+              <div className="mb-4 relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  autoComplete="new-password"
+                  id="password"
+                  required
+                  placeholder="Password"
+                  className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#00B207] bg-white text-gray-900"
+                />
+                <span
+                  className="absolute top-[14px] right-4"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                </span>
               </div>
-              <input
-                type="password"
-                name="password"
-                autoComplete="current-password"
-                id="password"
-                required
-                placeholder="*******"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-[#D1A054] bg-gray-200 text-gray-900"
-              />
+
+              {passwordError && (
+                <p
+                  style={{
+                    color: "red",
+                    fontSize: "0.8rem",
+                    marginTop: "0.5rem",
+                  }}
+                >
+                  {passwordError}
+                </p>
+              )}
             </div>
           </div>
 
           <div>
             <button
               type="submit"
-              className="bg-[#D1A054] text-white w-full rounded-md py-3 "
+              className="bg-[#00B207] w-full rounded-md transform font-semibold duration-100 hover:bg-[rgb(0,178,7,0.8)] py-3 text-white"
             >
-              Login
+              {loading ? (
+                <TbFidgetSpinner className="animate-spin m-auto" />
+              ) : (
+                "Continue"
+              )}
             </button>
           </div>
         </form>
+
         <div className="space-y-1">
           <button className="text-xs hover:underline hover:text-[#D1A054] text-gray-400">
             Forgot password?
           </button>
         </div>
-
-        <div className="flex items-center pt-4 space-x-1">
-          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-          <p className="px-3 text-sm dark:text-gray-400">
-            Login with social accounts
-          </p>
-          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-        </div>
-        {/* <button
-          onClick={handleLoginWithGoogle}
-          className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
-        >
-          <FcGoogle size={32} />
-
-          <p>Continue with Google</p>
-        </button> */}
         <SocialLogin />
-        <p className="px-6 text-sm text-center text-gray-400">
-          Don&apos;t have an account yet?{" "}
+        <p className="px-6 mt-3 text-sm text-center text-gray-400">
+          Don’t have account?
           <Link
             to="/signup"
-            className="hover:underline hover:text-[#D1A054] text-gray-600"
+            className="hover:underline font-semibold hover:text-[#00B207] text-[#00B207]"
           >
-            Sign up
+            Sing Up
           </Link>
           .
         </p>

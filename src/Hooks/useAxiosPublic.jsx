@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosSecurePublic = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://poco-restaurant-server.vercel.app/",
 });
 const useAxiosPublic = () => {
   return axiosSecurePublic;

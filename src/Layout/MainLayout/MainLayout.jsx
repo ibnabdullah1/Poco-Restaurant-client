@@ -4,15 +4,15 @@ import Footer from "../../Pages/Shared/Footer/Footer";
 import Header from "../../Pages/Shared/Header/Header";
 
 const MainLayout = () => {
-  const location = useLocation();
-  const noHeaderFooter = location.pathname.includes("login");
-
   return (
     <div>
-      {/* {noHeaderFooter || <Navbar />} */}
-      {noHeaderFooter || <Header />}
-      {noHeaderFooter || <Outlet />}
-      {noHeaderFooter || <Footer />}
+      {/* {noHeaderFooter || <Navbar />} 
+          {noHeaderFooter || <Header />}
+          {noHeaderFooter || <Outlet />}
+          {noHeaderFooter || <Footer />} */}
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   );
 };

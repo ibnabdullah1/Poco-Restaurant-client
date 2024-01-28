@@ -12,25 +12,14 @@ const CartItem = () => {
   const subtotal = cart
     .reduce((total, item) => total + parseFloat(item.price), 0)
     .toFixed(2);
-  const shipping = 5;
-  const totalPrice = subtotal + shipping;
+  const shipping = 8;
+  const totalPrice = (parseFloat(subtotal) + shipping).toFixed(2);
+
   const handleDelete = (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axiosSecure.delete(`/carts/${id}`).then((res) => {
-          if (res.data.deletedCount > 0) {
-            refetch();
-            toast.success("Food Successfully deleted ");
-          }
-        });
+    axiosSecure.delete(`/carts/${id}`).then((res) => {
+      if (res.data.deletedCount > 0) {
+        refetch();
+        toast.success("Food Successfully deleted ");
       }
     });
   };
@@ -89,7 +78,7 @@ const CartItem = () => {
           {totalPrice}
         </p>
       </div>
-      <Link>
+      <Link to={"/dashboard/checkout"}>
         <button className="inline-block w-full px-5 mt-4 py-3 text-sm font-medium text-black bg-[#FFCC00] border border-[#FFCC00] transform duration-200 rounded active:text-[#FFCC00] hover:bg-transparent hover:text-[#FFCC00] focus:outline-none focus:ring">
           Checkout
         </button>

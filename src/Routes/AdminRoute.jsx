@@ -1,6 +1,7 @@
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import useAdmin from "../Hooks/useAdmin";
+import { Spinner } from "@material-tailwind/react";
 
 const AdminRoute = ({ children }) => {
   const { user, loading } = useAuth();
@@ -11,7 +12,7 @@ const AdminRoute = ({ children }) => {
     return (
       <>
         <div className="min-h-[70vh] flex justify-center items-center ">
-          <span className="loading loading-ring loading-lg">loading....</span>
+          <Spinner color="green" />
         </div>
       </>
     );
