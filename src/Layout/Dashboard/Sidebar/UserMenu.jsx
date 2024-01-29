@@ -5,7 +5,7 @@ import {
 
 import MenuItem from "./MenuItem";
 import { TbHomeShield } from "react-icons/tb";
-import { BsCart4 } from "react-icons/bs";
+import { BsCalendar2Date, BsCart4 } from "react-icons/bs";
 import { VscPreview } from "react-icons/vsc";
 import { IoBagCheckOutline } from "react-icons/io5";
 
@@ -14,6 +14,11 @@ const UserMenu = () => {
     <>
       <MenuItem icon={TbHomeShield} label="User Home" address="userhome" />
       <MenuItem icon={IoBagCheckOutline} label="Checkout" address="checkout" />
+      <MenuItem
+        icon={BsCalendar2Date}
+        label="Reservation"
+        address="reservation"
+      />
       <MenuItem
         icon={MdHistoryToggleOff}
         label="Payment history"

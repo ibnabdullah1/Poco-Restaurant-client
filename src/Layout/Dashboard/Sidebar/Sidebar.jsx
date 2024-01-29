@@ -18,11 +18,10 @@ import { MdClose } from "react-icons/md";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(true);
-  const { userRole, users } = useRole();
+  const { userRole } = useRole();
   const handleToggle = () => {
     setActive(!isActive);
   };
-  console.log(userRole);
   return (
     <>
       <div className="bg-gray-100 text-gray-800 flex justify-end lg:hidden">
@@ -66,9 +65,8 @@ const Sidebar = () => {
                 label="Profile"
                 address="user-profile"
               />
-              {/* <AdminMenu /> <UserMenu /> */}
-
-              {userRole == "admin" ? <AdminMenu /> : <UserMenu />}
+              <AdminMenu /> <UserMenu />
+              {/* {userRole == "admin" ? <AdminMenu /> : <UserMenu />} */}
               <div className="h-[1px] w-[80%] mx-auto bg-gray-400 my-8" />
               <MenuItem icon={AiFillHome} label="Home" address="/" />
               <MenuItem

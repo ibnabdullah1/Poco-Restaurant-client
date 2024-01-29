@@ -1,6 +1,48 @@
+import { useEffect, useState } from "react";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import useAuth from "../../Hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
+import toast from "react-hot-toast";
+import { Spinner } from "@material-tailwind/react";
 
 const ManageBookings = () => {
+  const axiosSecure = useAxiosSecure();
+  const [noData, setNoData] = useState();
+  const { user } = useAuth();
+  const {
+    refetch,
+    data: manageBookings = [],
+    isLoading,
+  } = useQuery({
+    queryKey: ["manageBookings"],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/manage-bookings/${user?.email}`);
+      return res.data;
+    },
+  });
+  const handleChangeBookingStatus = async (id, status) => {
+    try {
+      const res = await axiosSecure.put(`/manage-bookings/${id}`, {
+        status: status,
+      });
+      if (res.data.modifiedCount) {
+        refetch();
+        toast.success("Booking status updated successfully");
+      }
+    } catch (error) {
+      console.error("Error updating status:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (manageBookings?.length <= 0) {
+      setNoData("Empty Bookings!");
+    } else {
+      setNoData("");
+    }
+  }, [manageBookings]);
+
   return (
     <>
       <SectionTitle subHeading={"Bookings"} heading={"Manage Booking"} />
@@ -8,32 +50,73 @@ const ManageBookings = () => {
       <div className="p-10 overflow-x-auto rounded-md bg-white">
         <table className="w-full table-auto">
           <thead>
-            <tr className="text-xs text-left text-gray-800 ">
-              <th className="px-6 pb-3 font-medium">Transaction ID</th>
-              <th className="px-6 pb-3 font-medium ">Date </th>
-              <th className="px-6 pb-3 font-medium">Email </th>
-              <th className="px-6 pb-3 font-medium">Status </th>
+            <tr className="text-xs text-left border-b-[1.5px] border-b-[#dddddd] text-gray-800 ">
+              <th className="px-6 pb-3 font-semibold">Name</th>
+              <th className="px-6 pb-3 font-semibold ">Date </th>
+              <th className="px-6 pb-3 font-semibold ">Time </th>
+              <th className="px-6 pb-3 font-semibold">Email </th>
+              <th className="px-6 pb-3 font-semibold">Guest </th>
+              <th className="px-6 pb-3 font-semibold">Status </th>
             </tr>
           </thead>
           <tbody>
-            <tr className="text-xs bg-gray-100 rounded-md">
-              <td className="px-6 py-5 font-medium">018276td45</td>
-              <td className="px-6 py-5 font-medium ">08.4.2021</td>
-              <td className="px-6 py-5 font-medium ">abc@gmail.com</td>
-              <td>
-                <span className="inline-block px-2 py-1 text-center text-green-600 bg-green-100 rounded-full dark:text-green-700 dark:bg-green-200">
-                  Completed
-                </span>
-                <span className="inline-block px-2 py-1 text-center text-red-600 bg-red-100 rounded-full dark:text-red-700 dark:bg-red-200">
-                  Cancelled
-                </span>
-                <span className="inline-block px-2 py-1 text-center text-yellow-600 bg-yellow-100 rounded-full dark:text-yellow-700 dark:bg-yellow-200">
-                  Pending
-                </span>
-              </td>
-            </tr>
+            {manageBookings?.map((booking, i) => (
+              <tr key={i} className="text-xs border-b rounded-md">
+                <td className="px-6 py-5 font-medium">{booking?.user}</td>
+                <td className="px-6 py-5 font-medium ">{booking?.date}</td>
+                <td className="px-6 py-5 font-medium ">{booking?.time}</td>
+                <td className="px-6 py-5 font-medium ">{booking?.email}</td>
+                <td className="px-6 py-5 font-medium ">{booking?.guest}</td>
+                <td>
+                  <div className="flex items-center gap-2">
+                    <button
+                      disabled={
+                        booking.status === "Canceled" ||
+                        booking.status === "Confirmed"
+                      }
+                      onClick={() =>
+                        handleChangeBookingStatus(booking._id, "Confirmed")
+                      }
+                      className={`inline-block px-2 py-1 text-center rounded-full ${
+                        (booking.status === "Canceled" &&
+                          "text-gray-300 bg-gray-100") ||
+                        (booking.status === "Confirmed" &&
+                          " bg-green-500 text-white") ||
+                        (booking.status === "Pending" &&
+                          " text-green-500 bg-green-100")
+                      }`}
+                    >
+                      {booking.status === "Confirmed"
+                        ? booking.status
+                        : "Confirm"}
+                    </button>
+                    <button
+                      disabled={booking.status === "Confirmed"}
+                      onClick={() =>
+                        handleChangeBookingStatus(booking._id, "Canceled")
+                      }
+                      className={`inline-block px-2 py-1 text-center rounded-full ${
+                        (booking.status === "Canceled" &&
+                          "text-white bg-red-600") ||
+                        (booking.status === "Confirmed" &&
+                          " text-gray-300 bg-gray-100") ||
+                        (booking.status === "Pending" &&
+                          " text-red-600 bg-red-100")
+                      }`}
+                    >
+                      {booking.status === "Canceled" ? "Canceled" : "Cancel"}
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
+        {isLoading ? (
+          <Spinner color="green" />
+        ) : (
+          <p className="text-gray-500">{noData}</p>
+        )}
       </div>
     </>
   );

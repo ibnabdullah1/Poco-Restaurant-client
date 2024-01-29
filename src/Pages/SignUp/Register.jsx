@@ -17,6 +17,7 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const { createUser, updateUserProfile } = useAuth();
   const from = location.state?.from?.pathname || "/";
+  console.log(from);
   const handleRegister = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -47,7 +48,7 @@ const Register = () => {
               role: "user",
               userProfile: imageData?.data?.display_url,
             };
-            console.log(userInfo);
+
             setLoading(false);
             axiosPublic.post("/users", userInfo).then((res) => {
               if (res.data.insertedId) {

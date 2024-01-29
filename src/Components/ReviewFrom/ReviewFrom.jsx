@@ -2,9 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Rating from "react-rating";
+import { FaStarOfLife } from "react-icons/fa6";
+import StarRating from "../../Layout/Dashboard/StarRating";
+import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const ReviewFrom = () => {
   const axiosSecure = useAxiosSecure();
+  const { user } = useAuth();
+  const [rate, setRate] = useState(0);
   const { refetch, data: reviews = [] } = useQuery({
     queryKey: ["reviews"],
     queryFn: async () => {
@@ -12,6 +18,32 @@ const ReviewFrom = () => {
       return res.data;
     },
   });
+  const date = new Date();
+  const formattedDate = date.toISOString().split("T")[0];
+  const handleStarChange = (starValue) => {
+    setRate(starValue);
+  };
+  const handleAddReview = async (e) => {
+    e.preventDefault();
+    if (rate > 0) {
+      const name = user?.displayName;
+      const title = "Front End Developer";
+      const rating = rate;
+      const image = user?.photoURL;
+      const review = e.target.review.value;
+      const date = formattedDate;
+      const reviewData = { name, title, rating, image, review, date };
+
+      const res = await axiosSecure.post("/review", reviewData);
+      if (res.data.insertedId) {
+        refetch();
+        toast.success("Review Send successfully");
+      }
+    } else {
+      toast.error("Please select a rating");
+    }
+    handleStarChange(0);
+  };
   return (
     <section className="py-10 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-6xl px-4 py-6 mx-auto lg:py-4 md:px-6">
@@ -125,19 +157,35 @@ const ReviewFrom = () => {
               <h2 className="px-2 mb-6 text-2xl font-semibold text-left text-gray-600 dark:text-gray-400">
                 Leave a comment
               </h2>
-              <form action="" className="">
+              <form onSubmit={handleAddReview} action="" className="">
                 <div className="px-2 mb-6">
                   <label
-                    htmlFor="firstname"
+                    htmlFor="rating"
+                    className="mb-2 font-medium text-gray-700 dark:text-gray-400 flex "
+                  >
+                    Rating
+                    <span className="text-red-600 text-[8px]">
+                      <FaStarOfLife />
+                    </span>
+                  </label>
+                  <StarRating maxStars={5} onChange={handleStarChange} />
+                </div>
+                <div className="px-2 mb-6">
+                  <label
+                    htmlFor="message"
                     className="block mb-2 font-medium text-gray-700 dark:text-gray-400"
                   >
                     Your review *
                   </label>
                   <textarea
                     type="message"
+                    name="review"
                     placeholder="write a review"
                     required=""
-                    className="block w-full px-4 leading-tight text-gray-700 border rounded bg-gray-50 dark:placeholder-gray-500 py-7 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 "
+                    defaultValue={
+                      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore sed veniam voluptate pariatur rerum autem, velit quasi repudiandae illo commodi?"
+                    }
+                    className="block w-full h-[100px] leading-tight text-gray-700 border rounded bg-gray-50 dark:placeholder-gray-500 p-3 dark:text-gray-400 dark:border-gray-800 dark:bg-gray-800 "
                   ></textarea>
                 </div>
                 <div className="px-2">

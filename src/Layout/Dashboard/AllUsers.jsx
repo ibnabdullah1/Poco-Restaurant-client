@@ -1,5 +1,3 @@
-import { FaUsers } from "react-icons/fa6";
-import { FaTrashAlt } from "react-icons/fa";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
@@ -7,7 +5,7 @@ import toast from "react-hot-toast";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import { MdDeleteOutline, MdOutlineChangeCircle } from "react-icons/md";
 import "./user.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Spinner } from "@material-tailwind/react";
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
@@ -24,9 +22,13 @@ const AllUsers = () => {
       return res.data;
     },
   });
-  if (users?.length < 0) {
-    setNoData("Empty users");
-  }
+  useEffect(() => {
+    if (users?.length <= 0) {
+      setNoData("No Users!");
+    } else {
+      setNoData("");
+    }
+  }, [users]);
   const handleChangeRole = (user, role) => {
     axiosSecure.patch(`/users/admin/${user._id}`, { role }).then((res) => {
       if (res.data.modifiedCount > 0) {
@@ -34,7 +36,6 @@ const AllUsers = () => {
         toast.success("User role updated successfully");
       }
     });
-    console.log(role);
   };
 
   const handleDelete = (user) => {
@@ -130,8 +131,11 @@ const AllUsers = () => {
             </tbody>
           </table>
           <div className="flex flex-col py-5 justify-center items-center">
-            {isLoading && <Spinner color="green" />}
-            {noData}
+            {isLoading ? (
+              <Spinner color="green" />
+            ) : (
+              <p className="text-gray-500">{noData}</p>
+            )}
           </div>
         </div>
       </div>

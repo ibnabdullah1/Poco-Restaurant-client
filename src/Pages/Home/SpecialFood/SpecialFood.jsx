@@ -93,9 +93,11 @@ const SpecialFood = () => {
           </div>
         ))}
       </div>
-      <div className="flex justify-center items-center py-10">
-        <Button level={"ALl Products"} address={"menu"} />
-      </div>
+      {menu.length > 0 && (
+        <div className="flex justify-center items-center py-10">
+          <Button level={"ALl Products"} address={"order"} />
+        </div>
+      )}
     </div>
   );
 };

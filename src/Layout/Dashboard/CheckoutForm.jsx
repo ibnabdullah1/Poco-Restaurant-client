@@ -71,12 +71,11 @@ const CheckoutForm = () => {
     } else {
       if (paymentIntent.status === "succeeded") {
         setTransactionId(paymentIntent.id);
-
         const payment = {
           email: user.email,
           price: totalPrice,
           transactionId: paymentIntent.id,
-          date: new Date(), // utc date convert. use moment js to
+          date: new Date(),
           cartIds: cart.map((item) => item._id),
           menuItemIds: cart.map((item) => item.menuItemID),
           status: "pending",
@@ -216,12 +215,6 @@ const CheckoutForm = () => {
           </button>
         </div>
       </div>
-      {/* <div className="text-center">
-        <h3 className="text-red-600 mt-2">{error}</h3>
-        {transactionId && (
-          <p className="text-green-600">Your transaction id: {transactionId}</p>
-        )}
-      </div> */}
     </form>
   );
 };

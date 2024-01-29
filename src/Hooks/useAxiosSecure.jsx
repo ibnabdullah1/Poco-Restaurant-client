@@ -3,12 +3,9 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: import.meta.env.VITE_API_URL,
 });
 const useAxiosSecure = () => {
-  /*
-  Request interceptor to add authentication header for every secure call to the api
-  */
   const navigate = useNavigate();
   const { logOut } = useAuth();
   axiosSecure.interceptors.request.use(function (config) {

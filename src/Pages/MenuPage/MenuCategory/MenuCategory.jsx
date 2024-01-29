@@ -4,7 +4,6 @@ import MenuItem from "../../Shared/MenuItem/MenuItem";
 import Button from "../../../Components/Button/Button";
 
 const MenuCategory = ({ items, location, img }) => {
-  console.log(items);
   return (
     <div className="pt-8">
       {location && <Cover location={location}></Cover>}

@@ -9,7 +9,7 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 //
 //   const handleLoginWithGoogle = () => {
-//     console.log(from);
+
 //     // signInWithGoogle().then(() => {
 //     //   //   navigate(from, { replace: true });
 //     //
@@ -31,7 +31,6 @@ const SocialLogin = () => {
         email: loggedInUser?.email,
       };
       axiosPublic.post("/users", saveUser).then((res) => {
-        console.log(res.data);
         if (!res.data.insertedId) {
           toast.error("user already exists");
           navigate(from, { replace: true });

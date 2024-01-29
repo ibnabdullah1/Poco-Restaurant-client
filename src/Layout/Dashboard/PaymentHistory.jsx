@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Spinner } from "@material-tailwind/react";
 
 const PaymentHistory = () => {
@@ -17,13 +17,16 @@ const PaymentHistory = () => {
     },
   });
 
-  if (payments?.length < 0) {
-    setNoData("No payments");
-  }
+  useEffect(() => {
+    if (payments?.length <= 0) {
+      setNoData("No payments!");
+    } else {
+      setNoData("");
+    }
+  }, [payments]);
 
   const dateString = "2023-11-21T05:30:08.128Z";
   const dateObject = dateString.split("T")[0];
-  console.log(payments);
   return (
     <>
       <SectionTitle subHeading={"Payments"} heading={"Payments History"} />
@@ -68,8 +71,11 @@ const PaymentHistory = () => {
           </tbody>
         </table>
         <div className="flex flex-col py-5 justify-center items-center">
-          {isLoading && <Spinner color="green" />}
-          {noData}
+          {isLoading ? (
+            <Spinner color="green" />
+          ) : (
+            <p className="text-gray-500">{noData}</p>
+          )}
         </div>
       </div>
     </>

@@ -26,7 +26,7 @@ const ManageItems = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         const res = await axiosSecure.delete(`/menu/${item._id}`);
-        console.log(res.data);
+
         if (res.data.deletedCount > 0) {
           refetch();
           toast.success("Menu deleted successfully");
@@ -56,7 +56,6 @@ const ManageItems = () => {
           subHeading={"Hurry Up!"}
           heading={"MANAGE ALL PRODUCTS"}
         />
-        <PaginationComponent menu={menu} />
         <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default  dark:bg-boxdark sm:px-7.5 xl:pb-1">
           <div className="max-w-full overflow-x-auto">
             <table className="w-full table-auto">
@@ -80,14 +79,14 @@ const ManageItems = () => {
                 </tr>
               </thead>
               <tbody>
-                {itemsToShow.map((item, i) => (
+                {itemsToShow?.map((item, i) => (
                   <tr key={i}>
                     <td className="border-b border-[#eee] py-5 px-4 pl-9  xl:pl-11">
                       <div className="flex items-center gap-3">
                         <div className="avatar">
                           <div className="mask mask-squircle w-12 h-12">
                             <img
-                              src={item.image}
+                              src={item?.image}
                               alt="Avatar Tailwind CSS Component"
                             />
                           </div>
@@ -95,7 +94,7 @@ const ManageItems = () => {
                       </div>
                     </td>
                     <td className="border-b border-[#eee] py-5 px-4 ">
-                      <p className="text-black dark:text-white">{item.name}</p>
+                      <p className="text-black dark:text-white">{item?.name}</p>
                     </td>
                     <td className="border-b border-[#eee] py-5 px-4 ">
                       <p className="inline-flex rounded-full bg-success bg-opacity-10 py-1 px-3 text-sm font-medium text-success">
@@ -121,14 +120,15 @@ const ManageItems = () => {
                 ))}
               </tbody>
             </table>
-            <div className="  flex-wrap md:flex justify-center py-16 gap-3">
-              <button
-                className=" flex items-center justify-center w-8  text-[#00B207] h-8 hover:bg-[rgb(44,116,47,0.1)] rounded-full"
-                onClick={handlePreviousPage}
-              >
-                <HiArrowNarrowLeft className="text-xl" />
-              </button>
-              {menu?.length >= 10 && (
+            {menu?.length >= 10 && (
+              <div className="  flex-wrap md:flex justify-center py-16 gap-3">
+                <button
+                  className=" flex items-center justify-center w-8  text-[#00B207] h-8 hover:bg-[rgb(44,116,47,0.1)] rounded-full"
+                  onClick={handlePreviousPage}
+                >
+                  <HiArrowNarrowLeft className="text-xl" />
+                </button>
+
                 <div className="flex justify-center gap-3">
                   {pages.map((page) => (
                     <button
@@ -144,14 +144,15 @@ const ManageItems = () => {
                     </button>
                   ))}
                 </div>
-              )}
-              <button
-                className="rounded-full text-[#00B207] text-xl  flex items-center justify-center w-8 hover:bg-[rgb(44,116,47,0.1)] h-8"
-                onClick={handleNextPage}
-              >
-                <HiArrowNarrowRight className="text-xl" />
-              </button>
-            </div>
+
+                <button
+                  className="rounded-full text-[#00B207] text-xl  flex items-center justify-center w-8 hover:bg-[rgb(44,116,47,0.1)] h-8"
+                  onClick={handleNextPage}
+                >
+                  <HiArrowNarrowRight className="text-xl" />
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

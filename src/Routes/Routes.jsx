@@ -29,6 +29,8 @@ import OurTeam from "../Pages/OurTeam/OurTeam";
 import { FAQs } from "../Pages/FAQ/FAQ";
 import ManageOrders from "../Pages/ManageOrders/ManageOrders";
 import Wishlist from "../Pages/Wishlist/Wishlist";
+import Reservation from "../Pages/Reservation/Reservation";
+import MyBooking from "../Pages/MyBooking/MyBooking";
 // import SignUp from "../Pages/Home/SignUp/SignUp";
 
 const router = createBrowserRouter([
@@ -79,7 +81,11 @@ const router = createBrowserRouter([
       },
       {
         path: "wishlist",
-        element: <Wishlist />,
+        element: (
+          <PrivateRoute>
+            <Wishlist />,
+          </PrivateRoute>
+        ),
       },
     ],
   },
@@ -98,23 +104,53 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Dashboard />,
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
       },
       {
         path: "settings",
-        element: <Settings />,
+        element: (
+          <PrivateRoute>
+            <Settings />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "reservation",
+        element: (
+          <PrivateRoute>
+            <Reservation />
+          </PrivateRoute>
+        ),
       },
       {
         path: "user-profile",
-        element: <Profile />,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <Profile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "shopping-cart",
-        element: <Cart />,
+        element: (
+          <PrivateRoute>
+            <Cart />,
+          </PrivateRoute>
+        ),
       },
       {
         path: "managebookings",
-        element: <ManageBookings />,
+        element: (
+          <AdminRoute>
+            {" "}
+            <ManageBookings />
+          </AdminRoute>
+        ),
       },
 
       {
@@ -153,11 +189,19 @@ const router = createBrowserRouter([
       },
       {
         path: "adminhome",
-        element: <AdminHome />,
+        element: (
+          <AdminRoute>
+            <AdminHome />
+          </AdminRoute>
+        ),
       },
       {
         path: "userhome",
-        element: <UserHome />,
+        element: (
+          <PrivateRoute>
+            <UserHome />
+          </PrivateRoute>
+        ),
       },
       {
         path: "checkout",
@@ -165,16 +209,36 @@ const router = createBrowserRouter([
       },
       {
         path: "paymentHistory",
-        element: <PaymentHistory />,
+        element: (
+          <PrivateRoute>
+            <PaymentHistory />
+          </PrivateRoute>
+        ),
       },
 
       {
         path: "addriview",
-        element: <ReviewFrom />,
+        element: (
+          <PrivateRoute>
+            <ReviewFrom />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "mybooking",
+        element: (
+          <PrivateRoute>
+            <MyBooking />
+          </PrivateRoute>
+        ),
       },
       {
         path: "manage-orders",
-        element: <ManageOrders />,
+        element: (
+          <PrivateRoute>
+            <ManageOrders />
+          </PrivateRoute>
+        ),
       },
     ],
   },

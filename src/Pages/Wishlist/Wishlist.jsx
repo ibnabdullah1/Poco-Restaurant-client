@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
 import getWishlist from "../../Api/wishlist";
 import { RxCrossCircled } from "react-icons/rx";
-import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import Cover from "../Shared/Cover/Cover";
 import { Button, Spinner } from "@material-tailwind/react";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
+import useCart from "../../Hooks/useCart";
 
 const Wishlist = () => {
+  const { refetch } = useCart();
   const [wishlist, setWishlist] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [noData, setNoData] = useState();
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
+
   useEffect(() => {
     setLoading(true);
     const myWishlist = getWishlist();
@@ -50,6 +52,7 @@ const Wishlist = () => {
       };
       axiosSecure.post("/carts", cartItem).then((res) => {
         if (res.data.insertedId) {
+          refetch();
           const existingWishlist =
             JSON.parse(localStorage.getItem("wishlist")) || [];
           const updatedWishlist = existingWishlist.filter(

@@ -1,8 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
+import { Spinner } from "@material-tailwind/react";
+import { useEffect, useState } from "react";
 
 const ManageOrders = () => {
+  const [noData, setNoData] = useState();
   const axiosSecure = useAxiosSecure();
   const {
     refetch,
@@ -16,10 +19,18 @@ const ManageOrders = () => {
       return res.data;
     },
   });
+
+  useEffect(() => {
+    if (orders?.length <= 0) {
+      setNoData("You have no orders!");
+    } else {
+      setNoData("");
+    }
+  }, [orders]);
   const handleChangeStatus = async (id) => {
     try {
-      const res = await axiosSecure.put(`/orders/${id}`);
-      console.log("Response:", res.data);
+      await axiosSecure.put(`/orders/${id}`);
+
       refetch();
     } catch (error) {
       console.error("Error updating status:", error);
@@ -71,7 +82,13 @@ const ManageOrders = () => {
             ))}
           </tbody>
         </table>
-        <p className="text-center my-4"> {isLoading && "Loading..."}</p>
+        <div className="flex flex-col py-5 justify-center items-center">
+          {isLoading ? (
+            <Spinner color="green" />
+          ) : (
+            <p className="text-gray-500">{noData}</p>
+          )}
+        </div>
       </div>
     </>
   );

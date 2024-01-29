@@ -10,7 +10,8 @@ const StarRating = ({ maxStars, onChange }) => {
     onChange(starValue);
   };
 
-  const handleReloadClick = () => {
+  const handleReloadClick = (e) => {
+    e.preventDefault();
     setSelectedStars(0);
     onChange(0);
   };

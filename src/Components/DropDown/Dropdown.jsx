@@ -28,7 +28,7 @@ const Dropdown = () => {
                 src={
                   user?.photoURL
                     ? user?.photoURL
-                    : "https://www.svgrepo.com/show/525577/user-circle.svg"
+                    : "https://i.ibb.co/PmWMF1j/user.png"
                 }
                 alt={user?.displayName}
                 withBorder={true}

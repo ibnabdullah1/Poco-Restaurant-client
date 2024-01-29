@@ -4,8 +4,9 @@ import useAuth from "./useAuth";
 
 const useRole = () => {
   const { user } = useAuth();
+  const currentUserEmail = user.email;
   const axiosPublic = useAxiosPublic();
-  const { refetch, data: users = [] } = useQuery({
+  const { data: users = [] } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosPublic.get("/role");
@@ -14,7 +15,7 @@ const useRole = () => {
   });
 
   const getUserRole = () => {
-    const foundUser = users.find((user) => user?.email === user?.email);
+    const foundUser = users.find((user) => user?.email === currentUserEmail);
     return foundUser ? foundUser.role : "";
   };
 

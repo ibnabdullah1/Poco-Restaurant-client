@@ -15,7 +15,7 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const { signIn } = useAuth();
-
+  console.log(location);
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;

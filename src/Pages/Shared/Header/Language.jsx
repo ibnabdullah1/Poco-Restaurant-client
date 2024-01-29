@@ -36,24 +36,15 @@ const Language = () => {
           isDropdownOpen ? "visible" : "invisible"
         } absolute z-50 flex flex-col bg-gray-100 py-1 px-4 text-gray-800 shadow-xl`}
       >
-        <a
-          className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
-          onClick={() => console.log("English selected")} // Add your action here
-        >
+        <a className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2">
           English
         </a>
 
-        <a
-          className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
-          onClick={() => console.log("Spanish selected")} // Add your action here
-        >
+        <a className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2">
           Spanish
         </a>
 
-        <a
-          className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2"
-          onClick={() => console.log("French selected")} // Add your action here
-        >
+        <a className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2">
           French
         </a>
       </div>

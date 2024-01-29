@@ -36,7 +36,6 @@ const AddItems = () => {
         rating: rating,
       };
       const menuResponse = await axiosSecure.post("/menu", menuItem);
-      console.log(menuResponse.data);
       if (menuResponse.data.insertedId) {
         toast.success("Menu was added successfully");
       }

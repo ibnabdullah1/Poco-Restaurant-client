@@ -57,7 +57,6 @@ export default function MyModal({ food }) {
     const existingWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
     const cartItem = {
       menuItemID: food?._id,
-      email: user?.email,
       category: food?.category,
       foodName: food?.name,
       price: totalPrice,
