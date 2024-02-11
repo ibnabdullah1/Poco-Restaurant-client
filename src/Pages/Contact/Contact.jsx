@@ -1,7 +1,5 @@
 import Cover from "../Shared/Cover/Cover";
-import CoverImage from "../../assets/contact/banner.jpg";
 import { IoPhonePortraitOutline } from "react-icons/io5";
-import { FaMapLocationDot } from "react-icons/fa6";
 import { TfiEmail } from "react-icons/tfi";
 import { CiLocationOn } from "react-icons/ci";
 const Contact = () => {

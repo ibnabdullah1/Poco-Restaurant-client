@@ -1,15 +1,17 @@
 .banner {
-  /* background-image: url("../../../assets/home/banner2.png"); */
-  background-image: url("../../../assets/home/food banner.png");
+  background-image: url("https://i.ibb.co/NWvcFJb/food-banner.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://i.ibb.co/0cRPn27/banner2.png"); */
 }
-@media screen and (min-width: 778px) {
+
+/* @media screen and (min-width: 778px) {
   .banner {
     background-image: url("../../../assets/home/banner2.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
-}
+} */

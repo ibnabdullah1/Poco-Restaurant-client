@@ -3,19 +3,6 @@ import useAuth from "../../Hooks/useAuth";
 import { FcGoogle } from "react-icons/fc";
 import toast from "react-hot-toast";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
-
-// const SocialLogin = ({ from }) => {
-//   const navigate = useNavigate();
-
-//
-//   const handleLoginWithGoogle = () => {
-
-//     // signInWithGoogle().then(() => {
-//     //   //   navigate(from, { replace: true });
-//     //
-//     // });
-//   };
-
 const SocialLogin = () => {
   const { signInWithGoogle } = useAuth();
   const navigate = useNavigate();

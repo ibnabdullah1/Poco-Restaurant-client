@@ -39,7 +39,7 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`z-20 lg:fixed flex flex-col justify-between overflow-x-hidden bg-[#fff] w-[280px] space-y-6  py-4 absolute inset-y-0 left-0 transform ${
+        className={`z-20 fixed flex flex-col justify-between overflow-x-hidden bg-[#fff] w-[280px] space-y-6  py-4  inset-y-0 left-0 transform ${
           isActive && "-translate-x-full"
         }  lg:translate-x-0  transition duration-200 ease-in-out`}
       >
@@ -65,8 +65,8 @@ const Sidebar = () => {
                 label="Profile"
                 address="user-profile"
               />
-              <AdminMenu /> <UserMenu />
-              {/* {userRole == "admin" ? <AdminMenu /> : <UserMenu />} */}
+              {/* <AdminMenu /> <UserMenu /> */}
+              {userRole == "admin" ? <AdminMenu /> : <UserMenu />}
               <div className="h-[1px] w-[80%] mx-auto bg-gray-400 my-8" />
               <MenuItem icon={AiFillHome} label="Home" address="/" />
               <MenuItem

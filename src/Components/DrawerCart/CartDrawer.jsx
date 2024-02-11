@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Drawer,
-  Button,
-  Typography,
-  IconButton,
-} from "@material-tailwind/react";
+import { Drawer, Typography, IconButton } from "@material-tailwind/react";
 import { TiShoppingCart } from "react-icons/ti";
 import useCart from "../../Hooks/useCart";
 import "./CartDrawer.css";

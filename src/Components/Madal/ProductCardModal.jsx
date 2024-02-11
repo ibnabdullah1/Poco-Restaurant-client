@@ -142,14 +142,14 @@ export default function MyModal({ food }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full mt-[600px] md:mt-[400px] lg:mt-10 max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full mt-[10px] md:mt-[400px] lg:mt-0 max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <button onClick={closeModal}>
                     <RxCross2 className="text-3xl text-gray-500" />
                   </button>
                   <div className="md:flex justify-between items-start ">
                     <div className="flex-1 items-center flex justify-center">
                       <img
-                        className="h-[300px] w-auto"
+                        className="h-[200px] md:h-[300px] w-auto"
                         src={food?.image}
                         alt=""
                       />

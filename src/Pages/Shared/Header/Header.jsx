@@ -5,15 +5,15 @@ import MobileNavbar from "./MobileNavbar";
 
 const Header = () => {
   return (
-    <>
+    <div className="relative">
       <Sticky />
       <hr />
-      <div className="  z-40 sticky top-0 bg-white w-full ">
+      <div className="sticky top-0 ">
         <SearchFunc />
         <NavbarWithMegaMenu />
       </div>
       <MobileNavbar />
-    </>
+    </div>
   );
 };
 

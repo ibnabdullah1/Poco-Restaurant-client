@@ -3,7 +3,6 @@ import useAuth from "../../Hooks/useAuth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { useState } from "react";
-import Swal from "sweetalert2";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 import { TbFidgetSpinner } from "react-icons/tb";
 import toast from "react-hot-toast";
