@@ -1,11 +1,11 @@
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { useState } from "react";
-import SocialLogin from "../../Components/SocialLogin/SocialLogin";
-import { TbFidgetSpinner } from "react-icons/tb";
 import toast from "react-hot-toast";
+import { TbFidgetSpinner } from "react-icons/tb";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -14,7 +14,7 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const { signIn } = useAuth();
-  console.log(location);
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;

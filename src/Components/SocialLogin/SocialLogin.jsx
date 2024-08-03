@@ -1,7 +1,7 @@
+import toast from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
-import { FcGoogle } from "react-icons/fc";
-import toast from "react-hot-toast";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 const SocialLogin = () => {
   const { signInWithGoogle } = useAuth();
@@ -16,6 +16,8 @@ const SocialLogin = () => {
       const saveUser = {
         name: loggedInUser?.displayName,
         email: loggedInUser?.email,
+        userProfile: loggedInUser?.photoURL,
+        role: "user",
       };
       axiosPublic.post("/users", saveUser).then((res) => {
         if (!res.data.insertedId) {

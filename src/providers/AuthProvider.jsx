@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { createContext, useEffect, useState } from "react";
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -10,6 +9,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import { createContext, useEffect, useState } from "react";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import { app } from "../firebase/firebase.config";
 
@@ -53,6 +53,7 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setLoading(false);
       setUser(currentUser);
+
       if (currentUser) {
         axiosPublic.post("/jwt", { email: currentUser.email }).then((data) => {
           if (data.data.token) {

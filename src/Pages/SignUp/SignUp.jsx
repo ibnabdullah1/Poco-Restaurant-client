@@ -1,11 +1,11 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import {} from "react-icons/fc";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import {} from "react-icons/fc";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 import useAuth from "../../Hooks/useAuth";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 const SignUp = () => {
   // eslint-disable-next-line no-unused-vars
   const axiosPublic = useAxiosPublic();
@@ -42,6 +42,7 @@ const SignUp = () => {
           const userInfo = {
             name,
             email,
+            role: "user",
           };
 
           axiosPublic.post("/users", userInfo).then((res) => {

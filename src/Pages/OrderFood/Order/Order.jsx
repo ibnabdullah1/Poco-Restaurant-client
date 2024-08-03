@@ -1,9 +1,8 @@
-import { useParams } from "react-router-dom";
-import orderImg from "../../../assets/shop/banner2.jpg";
 import { useEffect, useMemo, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import useMenu from "../../../Hooks/useMenu";
 import Cover from "../../Shared/Cover/Cover";
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import OrderTab from "../OrderTab/OrderTab";
 
 const Order = () => {
@@ -24,7 +23,7 @@ const Order = () => {
   const [tabIndex, setTabIndex] = useState(
     initialIndex !== -1 ? initialIndex : 0
   );
-  const [menu] = useMenu();
+  const [menu, isLoading] = useMenu();
   const desserts = menu.filter((item) => item.category === "Dessert");
   const burger = menu.filter((item) => item.category === "Burger");
   const coffee = menu.filter((item) => item.category === "Coffee");
@@ -59,25 +58,25 @@ const Order = () => {
         </TabList>
 
         <TabPanel>
-          <OrderTab items={salad}></OrderTab>
+          <OrderTab items={salad} isLoading={isLoading}></OrderTab>
         </TabPanel>
         <TabPanel>
-          <OrderTab items={pizza}></OrderTab>
+          <OrderTab items={pizza} isLoading={isLoading}></OrderTab>
         </TabPanel>
         <TabPanel>
-          <OrderTab items={coffee}></OrderTab>
+          <OrderTab items={coffee} isLoading={isLoading}></OrderTab>
         </TabPanel>
         <TabPanel>
-          <OrderTab items={chicken}></OrderTab>
+          <OrderTab items={chicken} isLoading={isLoading}></OrderTab>
         </TabPanel>
         <TabPanel>
-          <OrderTab items={burger}></OrderTab>
+          <OrderTab items={burger} isLoading={isLoading}></OrderTab>
         </TabPanel>
         <TabPanel>
-          <OrderTab items={desserts}></OrderTab>
+          <OrderTab items={desserts} isLoading={isLoading}></OrderTab>
         </TabPanel>
         <TabPanel>
-          <OrderTab items={drinks}></OrderTab>
+          <OrderTab items={drinks} isLoading={isLoading}></OrderTab>
         </TabPanel>
       </Tabs>
     </div>

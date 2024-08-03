@@ -1,8 +1,8 @@
+import grayCircle from "../../../assets/categories/grayCircle.png";
 import burger from "../../../assets/categories/h1_banner1-1.png";
 import roll from "../../../assets/categories/h1_banner2-2.png";
 import map from "../../../assets/categories/map.png";
 import yellowCercle from "../../../assets/categories/yellowCercle.png";
-import grayCircle from "../../../assets/categories/grayCircle.png";
 import "./PopularMenu.css";
 
 const PopularMenu = () => {
@@ -12,7 +12,7 @@ const PopularMenu = () => {
         <div
           data-aos="fade-right"
           data-aos-duration="1000"
-          className=" anyday-popup bg-white rounded flex py-7 justify-between  px-5 "
+          className=" bg-white rounded flex py-7 justify-between  px-5 "
         >
           <div className="space-y-2 flex-1">
             <h2 className="font-bold text-gray-700 leading-[24px] mt-3 text-2xl">
@@ -26,7 +26,7 @@ const PopularMenu = () => {
           </div>
           <div className="relative flex-1">
             <img
-              className="z-20 absolute top-0 bottom-0 my-auto"
+              className="z-[1] absolute top-0 bottom-0 my-auto"
               src={burger}
               alt=""
             />
@@ -57,7 +57,7 @@ const PopularMenu = () => {
           </div>
           <div className="relative flex-1">
             <img
-              className="z-20 absolute top-0 bottom-0 my-auto"
+              className="z-[1] absolute top-0 bottom-0 my-auto"
               src={roll}
               alt=""
             />
@@ -88,7 +88,7 @@ const PopularMenu = () => {
           </div>
           <div className="relative flex-1">
             <img
-              className="z-20 absolute top-0 bottom-0 my-auto"
+              className="z-[1] absolute top-0 bottom-0 my-auto"
               src={map}
               alt=""
             />

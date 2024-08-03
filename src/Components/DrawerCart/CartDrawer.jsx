@@ -1,5 +1,5 @@
+import { Drawer, IconButton, Typography } from "@material-tailwind/react";
 import React from "react";
-import { Drawer, Typography, IconButton } from "@material-tailwind/react";
 import { TiShoppingCart } from "react-icons/ti";
 import useCart from "../../Hooks/useCart";
 import "./CartDrawer.css";
@@ -12,7 +12,7 @@ export function CartDrawer() {
 
   return (
     <React.Fragment>
-      <div className="flex flex-wrap gap-4">
+      <div className="">
         <button
           onClick={openDrawerRight}
           className="hover:bg-[#ffcc00] flex justify-center items-center relative border w-[40px] h-[40px] hover:border hover:border-[#ffcc00] bg-white text-xl text-[#090909]  rounded-full hover:text-white"
@@ -23,14 +23,13 @@ export function CartDrawer() {
           <TiShoppingCart />
         </button>
       </div>
-
       <Drawer
         placement="right"
         open={openRight}
         onClose={closeDrawerRight}
-        className="px-4 overflow-y-auto pt-10 pb-20"
+        className=" px-4 bg-white overflow-y-auto "
       >
-        <div className="mb-6 flex items-center justify-between">
+        <div className="  pt-10 pb-20 flex items-center justify-between">
           <Typography variant="h5" color="blue-gray">
             Shopping Cart
           </Typography>
@@ -56,7 +55,7 @@ export function CartDrawer() {
           </IconButton>
         </div>
         <CartItem />
-      </Drawer>
+      </Drawer>{" "}
     </React.Fragment>
   );
 }

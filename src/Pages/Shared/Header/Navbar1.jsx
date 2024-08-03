@@ -1,37 +1,36 @@
-import React from "react";
+import {
+  Bars3Icon,
+  ChevronDownIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import {
   Collapse,
-  Typography,
   IconButton,
   List,
   ListItem,
   Menu,
   MenuHandler,
-  MenuList,
   MenuItem,
+  MenuList,
+  Typography,
 } from "@material-tailwind/react";
-import {
-  ChevronDownIcon,
-  Bars3Icon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import React from "react";
+import { BiSolidOffer } from "react-icons/bi";
+import { BsCart4 } from "react-icons/bs";
+import { FiPhoneCall } from "react-icons/fi";
+import { GiTeamIdea } from "react-icons/gi";
+import { IoBagCheckOutline } from "react-icons/io5";
 import { LuLayoutList } from "react-icons/lu";
 import {
+  MdDashboardCustomize,
   MdHomeFilled,
+  MdOutlineManageAccounts,
   MdOutlineProductionQuantityLimits,
 } from "react-icons/md";
 import { RiCustomerService2Line } from "react-icons/ri";
-import { BiSolidOffer } from "react-icons/bi";
-import { MdOutlineManageAccounts } from "react-icons/md";
-import { BsCart4 } from "react-icons/bs";
-import { MdDashboardCustomize } from "react-icons/md";
-import { IoBagCheckOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
-import { FiPhoneCall } from "react-icons/fi";
-import { GiTeamIdea } from "react-icons/gi";
-import pocoLogo from "../../../assets/pocoLogo.png";
 import poco from "../../../assets/logo_svg.svg";
-import { CartDrawer } from "../../../Components/DrawerCart/CartDrawer";
+import pocoLogo from "../../../assets/pocoLogo.png";
 import Dropdown from "../../../Components/DropDown/Dropdown";
 const pagesMenuItems = [
   {
@@ -339,7 +338,7 @@ export function NavbarWithMegaMenu() {
   }, []);
 
   return (
-    <div className=" bg-[#333333] z-40 sticky top-0 px-4 w-full py-2">
+    <div className=" bg-[#333333] sticky top-0 px-4 w-full py-2">
       <div className="flex items-center max-w-5xl mx-auto bg-[#333333] justify-between text-white">
         <div className="hidden lg:block">
           <NavList setOpenNav={setOpenNav} openNav={openNav} />
@@ -356,7 +355,6 @@ export function NavbarWithMegaMenu() {
         </div>
 
         <div className="flex gap-2 items-center lg:hidden">
-          <CartDrawer />
           <Dropdown />
           <IconButton
             variant="text"

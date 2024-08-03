@@ -1,36 +1,35 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from "../Pages/Home/Home/Home";
-import Menu from "../Pages/MenuPage/Menu/Menu";
-import MainLayout from "../Layout/MainLayout/MainLayout";
-import Order from "../Pages/OrderFood/Order/Order";
-import Login from "../Pages/Login/Login";
-import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard/Dashboard";
-import Cart from "../Layout/Dashboard/Cart";
+import Cart from "../Layout/Dashboard/User/Cart";
+import MainLayout from "../Layout/MainLayout/MainLayout";
+import Home from "../Pages/Home/Home/Home";
+import Login from "../Pages/Login/Login";
+import Menu from "../Pages/MenuPage/Menu/Menu";
+import Order from "../Pages/OrderFood/Order/Order";
+import PrivateRoute from "./PrivateRoute";
 // import SignUp from "../Pages/SignUp/SignUp";
-import AllUsers from "../Layout/Dashboard/AllUsers";
-import AddItems from "../Layout/Dashboard/AddItems";
-import AdminRoute from "./adminRoute";
-import ManageItems from "../Layout/Dashboard/ManageItems";
-import UpdateItem from "../Layout/Dashboard/UpdateItem";
-import Payment from "../Layout/Dashboard/Payment";
-import PaymentHistory from "../Layout/Dashboard/PaymentHistory";
-import AdminHome from "../Layout/Dashboard/AdminHome";
-import UserHome from "../Layout/Dashboard/userHome";
-import Register from "../Pages/SignUp/Register";
-import DashboardLayout from "../Layout/MainLayout/DashboardLayout";
-import Profile from "../Layout/Dashboard/Profile";
-import ErrorPage from "../Pages/ErrorPage/ErrorPage";
-import Settings from "../Layout/Dashboard/Settings";
 import ManageBookings from "../Components/ManageBookings/ManageBookings";
 import ReviewFrom from "../Components/ReviewFrom/ReviewFrom";
+import AddItems from "../Layout/Dashboard/Admin/AddItems";
+import AllUsers from "../Layout/Dashboard/Admin/AllUsers";
+import ManageItems from "../Layout/Dashboard/Admin/ManageItems";
+import UpdateItem from "../Layout/Dashboard/Admin/UpdateItem";
+import Profile from "../Layout/Dashboard/Profile";
+import Settings from "../Layout/Dashboard/Settings";
+import Payment from "../Layout/Dashboard/User/Payment";
+import PaymentHistory from "../Layout/Dashboard/User/PaymentHistory";
+import DashboardLayout from "../Layout/MainLayout/DashboardLayout";
 import Contact from "../Pages/Contact/Contact";
-import OurTeam from "../Pages/OurTeam/OurTeam";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import { FAQs } from "../Pages/FAQ/FAQ";
 import ManageOrders from "../Pages/ManageOrders/ManageOrders";
-import Wishlist from "../Pages/Wishlist/Wishlist";
-import Reservation from "../Pages/Reservation/Reservation";
 import MyBooking from "../Pages/MyBooking/MyBooking";
+import OurTeam from "../Pages/OurTeam/OurTeam";
+import CategoryBasedProducts from "../Pages/Products/CategoryBasedProducts";
+import Reservation from "../Pages/Reservation/Reservation";
+import Register from "../Pages/SignUp/Register";
+import Wishlist from "../Pages/Wishlist/Wishlist";
+import AdminRoute from "./adminRoute";
 // import SignUp from "../Pages/Home/SignUp/SignUp";
 
 const router = createBrowserRouter([
@@ -58,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "/order/:category",
         element: <Order />,
+      },
+      {
+        path: "/products/:category",
+        element: <CategoryBasedProducts />,
       },
       {
         path: "/login",
@@ -185,24 +188,9 @@ const router = createBrowserRouter([
           </AdminRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://poco-restaurant-server.vercel.app/menu/${params.id}`),
+          fetch(`http://localhost:5000/menu/${params.id}`),
       },
-      {
-        path: "adminhome",
-        element: (
-          <AdminRoute>
-            <AdminHome />
-          </AdminRoute>
-        ),
-      },
-      {
-        path: "userhome",
-        element: (
-          <PrivateRoute>
-            <UserHome />
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: "checkout",
         element: <Payment />,

@@ -1,13 +1,15 @@
-import { Link } from "react-router-dom";
-import pocoLogo from "../../../assets/pocoLogo.png";
-import poco from "../../../assets/logo_svg.svg";
-import { IoIosHeart } from "react-icons/io";
-import Dropdown from "../../../Components/DropDown/Dropdown";
-import { CartDrawer } from "../../../Components/DrawerCart/CartDrawer";
-import getWishlist from "../../../Api/wishlist";
 import { useEffect, useState } from "react";
+import { IoIosHeart } from "react-icons/io";
+import { TiShoppingCart } from "react-icons/ti";
+import { Link } from "react-router-dom";
+import getWishlist from "../../../Api/wishlist";
+import poco from "../../../assets/logo_svg.svg";
+import pocoLogo from "../../../assets/pocoLogo.png";
+import Dropdown from "../../../Components/DropDown/Dropdown";
+import useCart from "../../../Hooks/useCart";
 
 const SearchFunc = () => {
+  const [cart] = useCart();
   const [wishlist, setWishlist] = useState([]);
   useEffect(() => {
     const myWishlist = getWishlist();
@@ -58,7 +60,15 @@ const SearchFunc = () => {
         </svg>
       </div>
       <div className="flex gap-4 justify-center items-center ">
-        <CartDrawer />
+        <Link
+          to={"dashboard/shopping-cart"}
+          className="hover:bg-[#ffcc00] flex justify-center items-center relative border w-[40px] h-[40px] hover:border hover:border-[#ffcc00] bg-white text-xl text-[#090909]  rounded-full hover:text-white"
+        >
+          <span className=" top-1 absolute right-1 text-black w-[2px] h-[2px] flex justify-center items-center rounded-full text-[8px] p-2 bg-[#ffcc00]">
+            {cart?.length}
+          </span>
+          <TiShoppingCart />
+        </Link>
         <Link to={"/wishlist"}>
           <button className="hover:bg-[#ffcc00]  flex justify-center items-center relative border w-[40px] h-[40px] hover:border hover:border-[#ffcc00] bg-white text-xl  rounded-full hover:text-white">
             <span className=" top-1 absolute right-1 text-black w-[2px] h-[2px] flex justify-center items-center rounded-full text-[8px] p-2 bg-[#ffcc00]">

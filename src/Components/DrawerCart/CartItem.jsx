@@ -1,10 +1,8 @@
-import useCart from "../../Hooks/useCart";
+import toast from "react-hot-toast";
 import { RxCross2 } from "react-icons/rx";
-import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import Swal from "sweetalert2";
-import toast from "react-hot-toast";
+import useCart from "../../Hooks/useCart";
 
 const CartItem = () => {
   const [cart, refetch] = useCart();
@@ -12,7 +10,7 @@ const CartItem = () => {
   const subtotal = cart
     .reduce((total, item) => total + parseFloat(item.price), 0)
     .toFixed(2);
-  const shipping = 8;
+  let shipping = 8;
   const totalPrice = (parseFloat(subtotal) + shipping).toFixed(2);
 
   const handleDelete = (id) => {
@@ -25,7 +23,7 @@ const CartItem = () => {
   };
 
   return (
-    <div className="">
+    <div>
       {cart?.map((item, i) => (
         <div key={i} className="flex justify-between py-3 ">
           <div className="flex gap-1">

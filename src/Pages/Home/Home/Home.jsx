@@ -1,15 +1,13 @@
 import { Helmet } from "react-helmet";
+import MenuCard from "../../../Components/MenuCard/MenuCard";
 import Banner from "../Banner/Banner";
+import Blog from "../Blog/Blog";
 import Category from "../Category/Category";
 import Featured from "../Featured/Featured";
-import PopularMenu from "../PopularMenu/PopularMenu";
-import SpecialFood from "../SpecialFood/SpecialFood";
-import Testimonials from "../Testimonials/Testimonials";
-import MenuCard from "../../../Components/MenuCard/MenuCard";
-import Blog from "../Blog/Blog";
-import MdReviews from "../Testimonials/MDReview";
-import SmReviews from "../Testimonials/SMReview";
 import NewsLetter from "../NewLetter/NewsLetter";
+import PopularMenu from "../PopularMenu/PopularMenu";
+import Reviews from "../Reviews/Reviews";
+import SpecialFood from "../SpecialFood/SpecialFood";
 import Services from "./Services/Services";
 
 const Home = () => {
@@ -19,15 +17,12 @@ const Home = () => {
         <title>Poco Restaurant/Home</title>
       </Helmet>
       <Banner />
-
       <Category />
       <PopularMenu />
       <SpecialFood />
       <MenuCard />
       <Featured />
-      <SmReviews />
-      <MdReviews />
-      <Testimonials />
+      <Reviews />
       <Blog />
       <NewsLetter />
       <Services />

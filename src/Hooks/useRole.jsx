@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "./useAxiosPublic";
 import useAuth from "./useAuth";
+import useAxiosPublic from "./useAxiosPublic";
 
 const useRole = () => {
   const { user } = useAuth();
@@ -13,7 +13,6 @@ const useRole = () => {
       return res.data;
     },
   });
-
   const getUserRole = () => {
     const foundUser = users.find((user) => user?.email === currentUserEmail);
     return foundUser ? foundUser.role : "";

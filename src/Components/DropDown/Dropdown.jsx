@@ -1,15 +1,15 @@
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment } from "react";
-import { FaUser } from "react-icons/fa6";
-import useAuth from "../../Hooks/useAuth";
-import { Link, useNavigate } from "react-router-dom";
 import { Avatar } from "@material-tailwind/react";
-import { GoMail } from "react-icons/go";
+import { Fragment } from "react";
 import { CiSettings } from "react-icons/ci";
+import { FaUser } from "react-icons/fa6";
+import { GoMail } from "react-icons/go";
 import { IoLogInOutline } from "react-icons/io5";
-import { TbLogin } from "react-icons/tb";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { PiUserCircleFill } from "react-icons/pi";
+import { TbLogin } from "react-icons/tb";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 const Dropdown = () => {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const Dropdown = () => {
     navigate("/");
   };
   return (
-    <div className="z-50">
+    <div className="">
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="">
@@ -51,7 +51,7 @@ const Dropdown = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 mt-2  min-w-[270px] max-w-[300px] origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+          <Menu.Items className="absolute right-0 mt-2  min-w-[270px] max-w-[300px] origin-top-right divide-y divide-gray-100 z-50  rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
             <div
               className="py-1 border-b border-gray-200 dark:border-gray-600"
               role="none"

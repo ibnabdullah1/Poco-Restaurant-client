@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
+import Button from "../../../Components/Button/Button";
 import Cover from "../../Shared/Cover/Cover";
 import MenuItem from "../../Shared/MenuItem/MenuItem";
-import Button from "../../../Components/Button/Button";
 
-const MenuCategory = ({ items, location, img }) => {
+const MenuCategory = ({ items, location }) => {
   return (
     <div className="pt-8">
       {location && <Cover location={location}></Cover>}
 
-      <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto mt-20">
+      <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto mt-20">
         {items.map((item) => (
           <MenuItem key={item._id} item={item}></MenuItem>
         ))}

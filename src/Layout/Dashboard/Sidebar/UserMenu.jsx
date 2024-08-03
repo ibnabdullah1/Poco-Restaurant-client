@@ -3,16 +3,14 @@ import {
   MdOutlineCollectionsBookmark,
 } from "react-icons/md";
 
-import MenuItem from "./MenuItem";
-import { TbHomeShield } from "react-icons/tb";
 import { BsCalendar2Date, BsCart4 } from "react-icons/bs";
-import { VscPreview } from "react-icons/vsc";
 import { IoBagCheckOutline } from "react-icons/io5";
+import { VscPreview } from "react-icons/vsc";
+import MenuItem from "./MenuItem";
 
 const UserMenu = () => {
   return (
     <>
-      <MenuItem icon={TbHomeShield} label="User Home" address="userhome" />
       <MenuItem icon={IoBagCheckOutline} label="Checkout" address="checkout" />
       <MenuItem
         icon={BsCalendar2Date}

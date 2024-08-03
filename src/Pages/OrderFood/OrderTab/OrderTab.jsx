@@ -1,8 +1,9 @@
-import FoodCard from "../../../Components/FoodCard/FoodCard";
 import { useState } from "react";
-import { HiArrowNarrowRight, HiArrowNarrowLeft } from "react-icons/hi";
+import { HiArrowNarrowLeft, HiArrowNarrowRight } from "react-icons/hi";
+import FoodCard from "../../../Components/FoodCard/FoodCard";
+import FoodCardSkeleton from "../../../Components/Skeleton/FoodCardSkeleton";
 
-const OrderTab = ({ items }) => {
+const OrderTab = ({ items, isLoading }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 6;
   const startIndex = currentPage * itemsPerPage;
@@ -22,9 +23,13 @@ const OrderTab = ({ items }) => {
   return (
     <div>
       <div className="grid md:grid-cols-2    px-5 lg:grid-cols-3 gap-10 max-w-6xl py-10 mx-auto">
-        {itemsToShow.map((food) => (
-          <FoodCard key={food?._id} food={food}></FoodCard>
-        ))}
+        {isLoading
+          ? Array(12)
+              .fill()
+              .map((_, i) => <FoodCardSkeleton key={i} />)
+          : itemsToShow.map((food) => (
+              <FoodCard key={food?._id} food={food}></FoodCard>
+            ))}
       </div>
 
       {items.length > 5 && (

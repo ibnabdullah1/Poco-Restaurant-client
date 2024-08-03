@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import { IoCameraOutline } from "react-icons/io5";
 import { imageUpload } from "../../Api/utilis";
 import useAuth from "../../Hooks/useAuth";
 import useRole from "../../Hooks/useRole";
 import CoverOne from "../../assets/Thamnail/cover-01.png";
-import { IoCameraOutline } from "react-icons/io5";
 const useImageUpload = (storageKey) => {
   const [imageUrl, setImageUrl] = useState();
 
@@ -73,7 +73,7 @@ const Profile = () => {
             <form className="absolute bottom-4 -right-2 z-10">
               <label
                 htmlFor="profile"
-                className="flex cursor-pointer items-center justify-center gap-1 rounded bg-primary py-1 px-2 text-sm font-medium text-white hover:bg-opacity-80 xsm:px-4"
+                className="flex cursor-pointer items-center justify-center gap-1 rounded  py-1 px-2 text-sm font-medium text-white hover:bg-opacity-80 xsm:px-4"
               >
                 <input
                   type="file"
