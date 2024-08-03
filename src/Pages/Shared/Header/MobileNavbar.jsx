@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom";
-import { LuUserCircle } from "react-icons/lu";
+import { FaShopify } from "react-icons/fa";
 import { GoHomeFill } from "react-icons/go";
 import { HiShoppingCart } from "react-icons/hi";
+import { LuUserCircle } from "react-icons/lu";
 import { MdDashboardCustomize } from "react-icons/md";
-import { FaShopify } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const MobileNavbar = () => {
   return (

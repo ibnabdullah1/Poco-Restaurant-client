@@ -338,7 +338,7 @@ export function NavbarWithMegaMenu() {
   }, []);
 
   return (
-    <div className=" bg-[#333333] sticky top-0 px-4 w-full py-2">
+    <div className="  bg-[#333333] px-4 w-full py-2">
       <div className="flex items-center max-w-5xl mx-auto bg-[#333333] justify-between text-white">
         <div className="hidden lg:block">
           <NavList setOpenNav={setOpenNav} openNav={openNav} />

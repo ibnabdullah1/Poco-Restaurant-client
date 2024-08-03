@@ -8,6 +8,7 @@ import useLatestReservations from "../../../Hooks/LatestReservations";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import ReservationsChart from "../SalesCharts/ReservationsChart";
 import SalesAnalytics from "../SalesCharts/SalesAnalytics";
+import Weather from "../Weather";
 import CurrentReservations from "./CurrentReservations";
 import TopSalesItems from "./TopSalesItems";
 const AdminDashboard = () => {
@@ -20,9 +21,10 @@ const AdminDashboard = () => {
       return res.data;
     },
   });
-  console.log(stats);
+
   return (
     <div>
+      <Weather />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white px-5 py-4 rounded">
           <div className="flex justify-between items-center">

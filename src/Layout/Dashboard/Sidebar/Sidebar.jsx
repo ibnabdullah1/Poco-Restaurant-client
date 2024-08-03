@@ -26,12 +26,12 @@ const Sidebar = () => {
       <div className="bg-gray-100 text-gray-800 flex justify-end lg:hidden">
         <button
           onClick={handleToggle}
-          className="mobile-menu-button p-4 focus:outline-none focus:bg-gray-200"
+          className="mobile-menu-button p-4 focus:outline-none focus:bg-gray-100 text-primary"
         >
           {isActive ? (
-            <HiMiniBars3 className="h-5 w-5" />
+            <HiMiniBars3 className="text-3xl" />
           ) : (
-            <MdClose className="h-5 w-5" />
+            <MdClose className="text-3xl" />
           )}
         </button>
       </div>
@@ -67,7 +67,7 @@ const Sidebar = () => {
               {userRole == "admin" ? <AdminMenu /> : <UserMenu />}
 
               {/* <AdminMenu /> <UserMenu /> */}
-              <div className="h-[1px] w-[80%] mx-auto bg-gray-400 my-8" />
+              <div className="h-[1px] w-[80%] mx-auto bg-gray-200 my-8" />
               <MenuItem icon={AiFillHome} label="Home" address="/" />
               <MenuItem
                 icon={BsFillMenuButtonFill}

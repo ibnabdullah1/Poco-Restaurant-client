@@ -1,14 +1,8 @@
-import { useEffect } from "react";
-import ReactGA from "react-ga";
 import { Helmet } from "react-helmet-async";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../Dashboard/Sidebar/Sidebar";
 
 const DashboardLayout = () => {
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname);
-  });
-
   return (
     <div className="relative min-h-screen lg:flex">
       <Helmet></Helmet>

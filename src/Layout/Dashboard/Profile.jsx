@@ -46,7 +46,7 @@ const Profile = () => {
         <form className="absolute bottom-1 right-1 z-10">
           <label
             htmlFor="cover"
-            className="flex cursor-pointer items-center justify-center gap-1 bg-[#4e60E2] py-1 px-2 text-sm rounded text-white "
+            className="flex cursor-pointer items-center justify-center gap-1 bg-primary py-1 px-2 text-sm rounded text-white "
           >
             <input
               type="file"
@@ -82,7 +82,7 @@ const Profile = () => {
                   className="sr-only"
                   onChange={handleChangeProfile}
                 />
-                <span className="bg-[#4e60E2] h-6 w-6 md:h-8 md:w-8 flex text-white justify-center items-center rounded-full p-1">
+                <span className="bg-primary h-6 w-6 md:h-8 md:w-8 flex text-white justify-center items-center rounded-full p-1">
                   <IoCameraOutline className="text-base" />
                 </span>
               </label>
@@ -95,8 +95,8 @@ const Profile = () => {
           </h3>
           <p className="font-medium mb-3">{userRole ? userRole : "User"}</p>
 
-          <div className="mx-auto mt-4.5 mb-5.5 grid max-w-94 grid-cols-3 rounded-md border border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
-            <div className="flex flex-col items-center justify-center gap-1 border-r border-stroke px-4 dark:border-strokedark xsm:flex-row">
+          <div className="mx-auto mt-4.5 mb-5.5 grid max-w-94 grid-cols-3 rounded-md border border-stroke py-2.5 shadow-1">
+            <div className="flex flex-col items-center justify-center gap-1 border-r border-stroke px-4  xsm:flex-row">
               <span className="font-semibold text-black dark:text-white">
                 259
               </span>
